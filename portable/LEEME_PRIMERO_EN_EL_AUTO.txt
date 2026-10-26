@@ -1,0 +1,72 @@
+===============================================================================
+       GUÍA MAESTRA DEFINITIVA: CHANGAN X7 PLUS CUSTOM HMI & SUITE AUTOMOTRIZ
+===============================================================================
+
+LLEVA ESTA CARPETA PORTABLE EN TU LAPTOP O MEMORIA USB AL AUTO.
+TIENE TODO EL ENTORNO AUTÓNOMO INTEGRADO (PYTHON, ADB, APKS Y SERVIDOR WEB).
+NO REQUIERE INSTALAR NADA EN TU WINDOWS NI CONEXIÓN A INTERNET EN EL AUTO.
+
+-------------------------------------------------------------------------------
+PASO 1: EN TU AUTO (ACTIVAR DEPURACIÓN USB)
+-------------------------------------------------------------------------------
+1. Enciende la radio de tu Changan X7 Plus.
+2. Abre la aplicación de TELÉFONO (marcador de llamadas).
+3. Escribe exactamente el código:
+      **888
+4. Se abrirán los Ajustes Ocultos de Desarrollador del vehículo.
+5. Busca y MARCA la casilla: "Depuración por USB".
+6. Conecta el cable USB de tu laptop al PUERTO USB FRONTAL de la consola central.
+7. En la pantalla del auto aparecerá una ventana emergente:
+   -> Marca la casilla: "Permitir siempre desde este equipo"
+   -> Presiona el botón: ACEPTAR
+
+-------------------------------------------------------------------------------
+PASO 2: EN TU LAPTOP (ABRIR LA SUITE WEB O INSTALAR DIRECTAMENTE)
+-------------------------------------------------------------------------------
+Tienes DOS formas súper fáciles de aplicar todo:
+
+MÉTODO A: MEDIANTE LA INTERFAZ WEB VISUAL (RECOMENDADO)
+   1. Haz doble clic en "INICIAR_SUITE_PORTABLE.bat" (o "INICIAR_DASHBOARD_CHANGAN.bat").
+   2. Se abrirá automáticamente tu navegador en http://localhost:5050.
+   3. Verás en verde: "Changan X7 Plus Conectado".
+   4. Presiona el botón superior "⚡ IMPLEMENTAR TODO CON UN CLIC".
+   5. En el panel derecho tienes botones de 1 clic para:
+      * Restablecer GPS Físico Nativo (Antena satelital directa).
+      * Inyectar 371 Canales VIP en OwnTV (Perú, ESPN, Fox Sports, Cine).
+      * Corregir Superposición SimpMusic (Libera el botón de engranaje).
+      * Asistente Wi-Fi 2.4 GHz y HUR.
+
+MÉTODO B: MEDIANTE SCRIPT AUTOMATIZADO DIRECTO
+   1. Haz doble clic en "INSTALAR_TODO_EN_EL_AUTO.bat".
+   2. Realizará todo el proceso en consola en 1 solo clic:
+      - Instala Launcher Nativo Changan HMI v3.1.0 (1920x720 inmersivo).
+      - Configura selectores con cards para Navegación, Música y Cámara 360°.
+      - Activa el badge dinámico de Bluetooth (muestra conectado/desconectado real).
+      - Precarga la lista de 371 canales en /sdcard/canales_vip.m3u.
+      - Restablece el GPS satelital nativo de hardware.
+      - Aplica el bypass de SystemUI a SimpMusic.
+
+-------------------------------------------------------------------------------
+¿CÓMO CAMBIAR ENTRE EL LAUNCHER NUEVO Y EL DE FÁBRICA?
+-------------------------------------------------------------------------------
+   - Para poner el Launcher Cockpit Mejorado: "PONER_LAUNCHER_COCKPIT_DEFECTO.bat"
+   - Para volver al Launcher OnStyle de fábrica: "PONER_LAUNCHER_ONSTYLE_DEFECTO.bat"
+   - Para restaurar el auto al estado 100% de fábrica: "DESHACER_CAMBIOS_Y_RESTAURAR_FABRICA.bat"
+
+-------------------------------------------------------------------------------
+SOLUCIÓN A PROBLEMAS REPORTADOS (AUDITADOS Y COMPROBADOS):
+-------------------------------------------------------------------------------
+1. Botones del timón a la izquierda:
+   - Los botones izquierdos manejan el control crucero, limitador y la computadora
+     del cuadro de instrumentos (Cluster) mediante el bus CAN vehicular físico del auto.
+     No pasan por Android. Solo los botones de la DERECHA generan eventos Android.
+2. Botón Home:
+   - Verificado 100%. Regresa al launcher nativo desde cualquier aplicación.
+3. Cámara 360° AVM:
+   - Al tocar la card de Cámara 360, se abre el selector interactivo para probar
+     "Cámara AVM Live", "Builtin HD Camera" o "Pulso CAN Bus" y guardar tu favorita.
+4. SimpMusic & Engranaje:
+   - Ya no está tapado. El instalador aplica la bandera 'appCentered 2' e inmersión total.
+5. Canales de Cable OwnTV:
+   - Lista precargada con 371 canales en /sdcard/canales_vip.m3u.
+===============================================================================

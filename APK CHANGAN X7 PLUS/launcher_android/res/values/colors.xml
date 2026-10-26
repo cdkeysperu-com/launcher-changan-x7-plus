@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="cockpit_bg">#070D18</color>
+    <color name="cockpit_glass">#CC0B132B</color>
+    <color name="cockpit_glass_stroke">#4038BDF8</color>
+    <color name="cyan_accent">#00F0FF</color>
+    <color name="cyan_glow">#6000F0FF</color>
+    <color name="text_white">#F8FAFC</color>
+    <color name="text_muted">#94A3B8</color>
+    <color name="text_gold">#FACC15</color>
+    <color name="dock_bg">#D9080F1E</color>
+</resources>

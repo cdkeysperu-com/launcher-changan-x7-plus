@@ -1,0 +1,86 @@
+================================================================================
+   CONFIGURACIÓN ÓPTIMA RECOMENDADA - OPEN HEADUNIT v3.5.0 EN CHANGAN OSHAN X7
+      (Pantalla Panorámica 1920x720 / 1280x720 - Procesador MT8666 / Android 9)
+================================================================================
+
+Para obtener la máxima fluidez (60 FPS sin tirones), latencia ultra-baja y la 
+interfaz dividida Coolwalk (Waze/Maps a la izquierda + Spotify a la derecha) 
+SIN NINGUNA APK EN EL CELULAR, aplica estos ajustes dentro de Open Headunit:
+
+--------------------------------------------------------------------------------
+1. PANTALLA GENERAL (Settings -> Basic)
+--------------------------------------------------------------------------------
+- Connection mode (Modo de Conexión):
+    Marcar: [X] WiFi (y [X] USB si deseas soporte dual cable/inalámbrico).
+    Desmarcar: Self Mode (a menos que quieras emularlo en la misma radio).
+
+- App Language (Idioma):
+    Español (o Predeterminado del sistema).
+
+- UI Scale (Escala de interfaz):
+    100% o 110% (ideal para los botones táctiles del auto).
+
+--------------------------------------------------------------------------------
+2. CONEXIÓN INALÁMBRICA NATIVA (Settings -> Wireless Connection)
+--------------------------------------------------------------------------------
+- Wireless Mode:
+    Seleccionar: "Native" (Nativo).
+    * Este es el modo oficial que negocia directamente con Android Auto del celular.
+    * NO USES "Wireless Helper", ya que Helper requiere app en el celular.
+
+- Network transport (Transporte de red):
+    Opción A (Recomendada): "WiFi Direct (P2P)"
+      -> El auto y el celular crean una red directa punto a punto. No consume
+         datos del auto y mantiene los datos móviles de tu celular activos.
+    Opción B: "Headunit Hotspot"
+      -> El auto activa su punto de acceso WiFi y el celular se conecta a él.
+
+- Pause automatic Wi-Fi searches (Pausar búsquedas WiFi automáticas):
+    Activar: "Pause during wireless connections"
+    * Evita que Android escanee redes WiFi en segundo plano, eliminando
+      los micro-cortes y caídas de paquetes en la transmisión de video.
+
+--------------------------------------------------------------------------------
+3. RENDIMIENTO DE VIDEO Y PANTALLA DIVIDIDA COOLWALK (Settings -> Video / Display)
+--------------------------------------------------------------------------------
+- Video Codec:
+    Seleccionar: "H.264" (AVC).
+    * IMPORTANTE: En el procesador Mediatek MT8666 del Changan X7, H.264 cuenta
+      con decodificación por hardware con latencia inferior a 15 ms. H.265 puede
+      generar retraso o pantallas en negro en algunas unidades de infotainment.
+
+- Resolution (Resolución):
+    Seleccionar: "1280x720" o "1920x720 (Ultrawide)".
+    * 1280x720 es ultra-ligera y ofrece 60 FPS estables.
+    * 1920x720 aprovecha al 100% el panel completo de la pantalla del Changan.
+
+- Frame Rate (FPS):
+    Seleccionar: "60 FPS".
+
+- Video Renderer:
+    Seleccionar: "TextureView" (o "SurfaceView" si deseas aceleración directa).
+
+- Pixel Density / DPI:
+    Seleccionar: "160 DPI" o "180 DPI".
+    * EXPLICACIÓN: A 160-180 DPI, Android Auto activa automáticamente la interfaz
+      "Coolwalk" panorámica en el ancho de la pantalla: mapa de navegación en grande
+      a la izquierda + tarjeta de reproducción (Spotify/YouTube Music) a la derecha.
+
+--------------------------------------------------------------------------------
+4. AUDIO Y MICRÓFONO (Settings -> Audio)
+--------------------------------------------------------------------------------
+- Audio Sink (Salida de audio hacia la radio):
+    Activar: Activado (On).
+    * Permite que la música, indicaciones de navegación y llamadas salgan por los
+      altavoces del Changan X7.
+
+- Audio Engine / Driver:
+    Seleccionar: "AAudio (Low Latency)" si está disponible, o "AudioTrack".
+    * AAudio reduce el retraso de audio a menos de 40 ms.
+
+- Music / Media Stream:
+    Canal: "Music" o "System".
+
+- Mic Recorder (Micrófono para comandos de voz / Google Assistant):
+    Activar: Activado (On). Permite decir "Hey Google" y responder por el mic del auto.
+================================================================================

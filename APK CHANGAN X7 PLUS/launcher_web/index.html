@@ -1,0 +1,1014 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HU Installer – Changan X7 Plus</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="brand-badge">HU</div>
+        <div class="brand-text">
+          <h1>HU INSTALLER</h1>
+          <p>Changan X7 Plus · ADB Manager</p>
+        </div>
+      </div>
+
+      <nav class="nav-menu">
+        <div class="nav-section-title">CONFIGURACIÓN DEFINITIVA</div>
+        <button class="nav-item active" data-tab="tab-master" id="nav-master">
+          <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="#00e5ff" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          <div class="nav-text">
+            <span style="font-weight:700; color:#38bdf8;">Máster 1-Clic</span>
+            <small class="badge-safe" style="background:#0284c7; color:#fff;">RECOMENDADO</small>
+          </div>
+        </button>
+
+        <div class="nav-section-title">MODOS DE INSTALACIÓN</div>
+        <button class="nav-item" data-tab="tab-user" id="nav-user">
+          <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          <div class="nav-text">
+            <span>Usuario (ADB)</span>
+            <small class="badge-safe">100% SEGURO</small>
+          </div>
+        </button>
+
+        <button class="nav-item" data-tab="tab-root" id="nav-root">
+          <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          <div class="nav-text">
+            <span>Sistema (Root)</span>
+            <small class="badge-danger">AVANZADO</small>
+          </div>
+        </button>
+
+        <div class="nav-section-title">HERRAMIENTAS</div>
+        <button class="nav-item" data-tab="tab-keymap" id="nav-keymap">
+          <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/><line x1="12" y1="3" x2="12" y2="9"/><line x1="12" y1="15" x2="12" y2="21"/><line x1="3" y1="12" x2="9" y2="12"/><line x1="15" y1="12" x2="21" y2="12"/></svg>
+          <div class="nav-text">
+            <span style="font-weight:700; color:#38bdf8;">Mapeo de Teclado</span>
+            <small class="badge-safe" style="background:#0284c7; color:#fff;">EN VIVO</small>
+          </div>
+        </button>
+
+        <button class="nav-item" data-tab="tab-manager" id="nav-manager">
+          <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          <span>Gestor de Apps</span>
+        </button>
+
+        <button class="nav-item" data-tab="tab-screen" id="nav-screen">
+          <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+          <span>Ajustes & Pantalla</span>
+        </button>
+
+        <button class="nav-item" data-tab="tab-cockpit" id="nav-cockpit">
+          <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+          <div class="nav-text">
+            <span>Cockpit X7 Plus</span>
+            <small class="badge-safe">MODO OSCURO</small>
+          </div>
+        </button>
+
+        <button class="nav-item" data-tab="tab-guide" id="nav-guide">
+          <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          <span>Paso a Paso & Guía</span>
+        </button>
+
+        <button class="nav-item" data-tab="tab-updates" id="nav-updates">
+          <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          <div class="nav-text">
+            <span style="font-weight:700; color:#10b981;">Estado & Avances</span>
+            <small class="badge-safe" style="background:rgba(16, 185, 129, 0.2); color:#10b981; border:1px solid rgba(16, 185, 129, 0.4);">CONTROL CALIDAD</small>
+          </div>
+        </button>
+      </nav>
+
+      <!-- DEVICE CONNECTION BOX -->
+      <div class="sidebar-device-box">
+        <div class="device-box-header">
+          <span class="pulse-indicator disconnected" id="sidebar-pulse"></span>
+          <span class="device-status-text" id="sidebar-status-text">DESCONECTADO</span>
+        </div>
+        <div class="device-meta-info" id="sidebar-device-meta">
+          <div><strong id="device-model-label">Modelo:</strong> <span id="meta-model">Detectando...</span></div>
+          <div><strong>Serial:</strong> <span id="meta-serial">--</span></div>
+          <div><strong>Hardware:</strong> <span id="meta-hw">MT8666</span></div>
+          <div><strong>Arquitectura:</strong> <span id="meta-abi">--</span></div>
+          <div><strong>Almacenamiento:</strong> <span id="meta-storage">--</span></div>
+        </div>
+        <button class="btn-refresh-device" id="btn-scan-device">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 4v6h-6M1 20v-6h6M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
+          Escanear Conexión USB
+        </button>
+
+        <!-- WI-FI CONNECTION BOX -->
+        <div class="sidebar-wifi-box">
+          <div class="wifi-box-label">
+            <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12.55a11 11 0 0 1 14.08 0M1.42 9a16 16 0 0 1 21.16 0M8.53 16.11a6 6 0 0 1 6.95 0M12 20h.01"/></svg>
+            <span>Conexión Wi-Fi (Sin Cable)</span>
+          </div>
+          <div class="wifi-input-row">
+            <input type="text" id="wifi-ip-input" class="wifi-input" placeholder="IP (ej: 192.168.43.15)" spellcheck="false">
+            <button class="btn-wifi-connect" id="btn-wifi-connect">Vincular</button>
+          </div>
+          <div class="wifi-hint">Radio y laptop en mismo Hotspot/Wi-Fi</div>
+        </div>
+      </div>
+
+      <!-- DONATION / COMMUNITY -->
+      <div class="sidebar-footer">
+        <div class="community-title">COMUNIDAD X7 PLUS</div>
+        <p class="community-sub">Agradecimientos a Emilio Reyes y comunidad de propietarios Changan.</p>
+        <div class="community-badges">
+          <span class="badge-tag">Yape / Plin</span>
+          <span class="badge-tag">PayPal</span>
+        </div>
+      </div>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+      <!-- TOP STATUS BAR -->
+      <header class="topbar">
+        <div class="topbar-left">
+          <div class="status-pill disconnected" id="top-status-pill">
+            <span class="pill-dot"></span>
+            <span id="top-status-label">Buscando Radio Changan X7 Plus...</span>
+          </div>
+          <div class="soc-tag">MediaTek MT8666 · Android Car</div>
+        </div>
+        <div class="topbar-actions">
+          <button class="btn-tool btn-primary-action" id="btn-topbar-apply-all" title="Implementar toda la suite con 1 clic (Launcher, Waze, YouTube, Kick, Radio, 360 y GPS)">
+            <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="#00e5ff" stroke-width="2.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+            <span style="color:#00e5ff; font-weight:800; letter-spacing:0.5px;">⚡ IMPLEMENTAR TODO CON UN CLIC</span>
+          </button>
+          <button class="btn-tool btn-danger-action" id="btn-topbar-clean-all" title="Borrar y limpiar todo para dejar limpio de fábrica">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="#ef4444" stroke-width="2"><path d="M3 6h18M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+            <span style="color:#ef4444; font-weight:700;">🧹 LIMPIAR TODO</span>
+          </button>
+          <button class="btn-tool btn-primary-action" id="btn-topbar-open-emulator" title="Abrir la ventana panorámica del Emulador Changan X7 Plus (1920x720) en tu pantalla">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="#38bdf8" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+            <span style="color:#38bdf8; font-weight:700;">🖥️ Emulador</span>
+          </button>
+          <button class="btn-tool btn-warning-action" id="btn-topbar-restore-factory" title="Deshacer todos los cambios y volver a la interfaz de fábrica OnStyle en 1 clic">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="#f59e0b" stroke-width="2"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
+            <span style="color:#f59e0b; font-weight:700;">↺ Deshacer</span>
+          </button>
+          <button class="btn-tool btn-danger-action" id="btn-quick-unfreeze" title="Cierra procesos colgados y libera la pantalla táctil de inmediato">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+            Descongelar
+          </button>
+          <button class="btn-tool" id="btn-quick-reboot" title="Reiniciar Pantalla de la Radio">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg>
+            Reiniciar
+          </button>
+        </div>
+      </header>
+
+      <!-- BODY SECTIONS -->
+      <div class="content-body">
+
+        <!-- TAB 0: CONFIGURACIÓN MÁSTER 1-CLIC (DEFINITIVA) -->
+        <section class="tab-pane active" id="tab-master">
+          <!-- HERO BANNER DE ACCIÓN PRINCIPAL 1-CLIC -->
+          <div class="master-hero-banner">
+            <div class="hero-left">
+              <div class="hero-badge-row">
+                <span class="hero-badge">⚡ ACCIÓN PRINCIPAL 2026</span>
+                <span class="hero-version">Changan X7 Plus · MT8666 Android 9</span>
+              </div>
+              <h2 class="hero-title">IMPLEMENTAR TODO CON UN CLIC</h2>
+              <p class="hero-subtitle">
+                Instala y optimiza toda la suite sin sobreescrituras: <strong>Cockpit 1920x720 nativo</strong>, <strong>Cámara 360° AVM (Foto 2)</strong>, <strong>GPS por Zona Wi-Fi celular</strong>, <strong>Única burbuja flotante sutil (38dp)</strong>, <strong>Waze</strong>, <strong>Magic Earth 3D</strong>, <strong>YouTube</strong>, <strong>Kick</strong> y <strong>Radio Oficial</strong>.
+              </p>
+            </div>
+            <div class="hero-buttons">
+              <button class="btn-hero-action primary" id="btn-hero-apply-all">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                <div class="btn-hero-text">
+                  <span class="main-label">IMPLEMENTAR TODO CON UN CLIC</span>
+                  <span class="sub-label">Instalación limpia, fluida y sin sobreescrituras</span>
+                </div>
+              </button>
+              <button class="btn-hero-action danger" id="btn-hero-clean-all">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+                <div class="btn-hero-text">
+                  <span class="main-label">LIMPIAR TODO Y DEJAR LIMPIO</span>
+                  <span class="sub-label">Desinstalar todo y purgar cachés (Cero residuos)</span>
+                </div>
+              </button>
+            </div>
+          </div>
+
+          <!-- 5 OPERACIONES CLAVE DE CONTROL AUTOMOTRIZ -->
+          <div class="core-ops-container">
+            <div class="core-ops-header">
+              <h3>
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#38bdf8" stroke-width="2.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                PANEL DE CONTROL MAESTRO · CHANGAN X7 PLUS (5 OPERACIONES CLAVE)
+              </h3>
+              <span style="font-size: 12px; color: #94a3b8;">Control Directo ADB USB · F202_MCA</span>
+            </div>
+
+            <div class="core-ops-grid">
+              
+              <!-- CARD 1: BORRAR TODO Y VOLVER A FÁBRICA -->
+              <div class="core-card">
+                <div>
+                  <div class="core-card-header">
+                    <div class="core-card-icon red">🔴</div>
+                    <div class="core-card-titles">
+                      <h4>1. Borrar Todo y Dejar de Fábrica</h4>
+                      <span class="core-card-tag red">ESTADO VIRGEN ORIGINAL</span>
+                    </div>
+                  </div>
+                  <p class="core-card-desc">
+                    Borra absolutamente todo lo instalado (Waze, Cockpit Launcher, Spotube, OwnTV, servicios de fondo), devuelve el auto a <strong>Changan OnStyle original</strong> y restablece overscan, densidades y permisos como el primer día de fábrica.
+                  </p>
+                </div>
+                <div class="core-card-actions">
+                  <button class="btn-core red" id="btn-core-restore-factory">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
+                    🔴 BORRAR TODO Y VOLVER A FÁBRICA (1 CLIC)
+                  </button>
+                  <div class="core-card-footer">
+                    <span>Último borrado:</span>
+                    <strong id="ts-factory-restore">Nunca realizado</strong>
+                  </div>
+                </div>
+              </div>
+
+              <!-- CARD 2: APLICAR TODAS LAS MEJORAS CON 1 CLIC -->
+              <div class="core-card" style="border-color: rgba(56, 189, 248, 0.4); box-shadow: 0 0 20px rgba(14, 165, 233, 0.15);">
+                <div>
+                  <div class="core-card-header">
+                    <div class="core-card-icon cyan">⚡</div>
+                    <div class="core-card-titles">
+                      <h4>2. Aplicar Todas las Mejoras</h4>
+                      <span class="core-card-tag cyan">SUITE COMPLETA RECOMENDADA</span>
+                    </div>
+                  </div>
+                  <p class="core-card-desc">
+                    Instala <strong>Cockpit X7 Plus Nativo</strong> (1920x720 sin franjas negras), bypass F202_SystemUI, GPS satelital real de hardware, Radio Universal con logos oficiales peruanos/mundiales, InnerTune Hi-Fi, YouTube Web Pro y Kick Live (sin bordes), HydraTV, CarPlay y Android Auto en un solo paso automatizado.
+                  </p>
+                </div>
+                <div class="core-card-actions">
+                  <button class="btn-core cyan" id="btn-core-apply-all">
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                    ⚡ APLICAR TODAS LAS MEJORAS (1 CLIC)
+                  </button>
+                  <div class="core-card-footer">
+                    <span>Última aplicación:</span>
+                    <strong id="ts-apply-all">Nunca realizado</strong>
+                  </div>
+                </div>
+              </div>
+
+              <!-- CARD 3: CONFIGURACIÓN GLOBAL DE MÁRGENES Y PANTALLA -->
+              <div class="core-card">
+                <div>
+                  <div class="core-card-header">
+                    <div class="core-card-icon blue">📐</div>
+                    <div class="core-card-titles">
+                      <h4>3. Ajuste Global de Pantalla & Márgenes</h4>
+                      <span class="core-card-tag blue">¿BASTA CON UN SOLO AJUSTE? ¡SÍ!</span>
+                    </div>
+                  </div>
+                  <p class="core-card-desc">
+                    <strong>Explicación:</strong> Las franjas de 320px son barras añadidas por <code>F202_SystemUI</code>. Este ajuste global aplica <strong>overscan 0,0,0,0</strong>, <strong>1920x720 nativo @ 213 DPI</strong> y broadcast OEM. ¡No necesitas calibrar márgenes a mano nunca más!
+                  </p>
+                </div>
+                <div class="core-card-actions">
+                  <button class="btn-core blue" id="btn-core-global-margins">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                    📐 APLICAR AJUSTE GLOBAL DE MÁRGENES
+                  </button>
+                  <div class="core-card-footer">
+                    <span>Última calibración:</span>
+                    <strong id="ts-screen-config">Nunca realizado</strong>
+                  </div>
+                </div>
+              </div>
+
+              <!-- CARD 4: EXTRAER TODA LA INFORMACIÓN DEL AUTO (LOG COMPLETO) -->
+              <div class="core-card">
+                <div>
+                  <div class="core-card-header">
+                    <div class="core-card-icon emerald">📊</div>
+                    <div class="core-card-titles">
+                      <h4>4. Extraer Toda la Información (Log)</h4>
+                      <span class="core-card-tag emerald">TELEMETRÍA COMPLETA DEL VEHÍCULO</span>
+                    </div>
+                  </div>
+                  <p class="core-card-desc">
+                    Genera un reporte técnico exhaustivo con fecha y hora: SoC MediaTek MT8666, memoria RAM real, capas de SystemUI, particiones, lista completa de paquetes instalados y registro logcat de eventos.
+                  </p>
+                </div>
+                <div class="core-card-actions">
+                  <button class="btn-core emerald" id="btn-core-export-telemetry">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                    📊 EXTRAER TELEMETRÍA Y GENERAR INFORME
+                  </button>
+                  <div id="telemetry-link-wrap" style="display:none; margin-top: 6px;">
+                    <a id="telemetry-link" href="#" target="_blank" class="badge-link">📄 Ver / Descargar Último Informe</a>
+                  </div>
+                  <div class="core-card-footer">
+                    <span>Última extracción:</span>
+                    <strong id="ts-telemetry-export">Nunca realizado</strong>
+                  </div>
+                </div>
+              </div>
+
+              <!-- CARD 5: COPIA DE SEGURIDAD / CLONACIÓN DEL SISTEMA -->
+              <div class="core-card">
+                <div>
+                  <div class="core-card-header">
+                    <div class="core-card-icon purple">💾</div>
+                    <div class="core-card-titles">
+                      <h4>5. Copia de Seguridad del Sistema</h4>
+                      <span class="core-card-tag purple">CLONAR AUTO PARA EMULAR EN PC</span>
+                    </div>
+                  </div>
+                  <p class="core-card-desc">
+                    Descarga por ADB los directorios originales del auto (<code>/system/priv-app</code>, <code>/system/app</code>, <code>/vendor/app</code>, <code>/system/framework</code> y <code>build.prop</code>) a tu PC para emular el sistema del vehículo con 100% de precisión.
+                  </p>
+                </div>
+                <div class="core-card-actions">
+                  <button class="btn-core purple" id="btn-core-system-backup">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+                    💾 INICIAR COPIA DE SEGURIDAD DEL AUTO
+                  </button>
+                  <div id="backup-info-wrap" style="display:none; margin-top: 6px; font-size:12px; color:#c084fc;">
+                    <span>Copia: <strong id="backup-info-dir">--</strong> (<span id="backup-info-count">0</span> archivos)</span>
+                  </div>
+                  <div class="core-card-footer">
+                    <span>Último respaldo:</span>
+                    <strong id="ts-system-backup">Nunca realizado</strong>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- LIVE STEP-BY-STEP PROGRESS BOX -->
+          <div class="master-progress-box" id="master-progress-box">
+            <div class="master-steps-list" id="master-steps-list">
+              <!-- Injected via JavaScript -->
+            </div>
+          </div>
+
+          <!-- QUICK INSTRUCTIONS CARD -->
+          <div class="card" style="background: rgba(15, 23, 42, 0.5); border: 1px solid rgba(255, 255, 255, 0.08); padding: 20px; border-radius: 14px;">
+            <h4 style="color: #38bdf8; margin-bottom: 10px; font-size: 15px; display: flex; align-items: center; gap: 8px;">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+              Instrucciones Rápidas para Mañana en el Auto
+            </h4>
+            <ol style="margin-left: 20px; color: #cbd5e1; font-size: 13px; line-height: 1.8;">
+              <li>Enciende el motor de la Changan X7 Plus y conecta el cable USB al <b>puerto multimedia delantero</b>.</li>
+              <li>En la pantalla de la radio, ve al marcador del teléfono y escribe <code>**888</code> para activar <b>Depuración por USB</b>.</li>
+              <li>Abre esta aplicación (<b>HU Installer</b>) y verás el estado en verde <b>🟢 Conectado</b> arriba.</li>
+              <li>Presiona el botón azul <b>"APLICAR TODO EN 1 CLIC"</b>. En menos de 60 segundos la radio quedará 100% configurada y lista.</li>
+            </ol>
+          </div>
+        </section>
+
+        <!-- TAB 1: INSTALACIÓN USUARIO (SEGURO) -->
+        <section class="tab-pane" id="tab-user">
+          <div class="hero-banner">
+            <div class="hero-icon-wrap">
+              <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="#00e5ff" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+            </div>
+            <div class="hero-text">
+              <h2>Instalación Nativa Segura (Modo Usuario ADB)</h2>
+              <p>Este método instala aplicaciones directamente en el espacio de usuario (<code>/data/app</code>). <strong>CERO riesgo de brickeo:</strong> no altera particiones del sistema ni la garantía de tu Changan X7 Plus 2026.</p>
+            </div>
+          </div>
+
+          <!-- APP CATALOG -->
+          <div class="section-header-row">
+            <div>
+              <h3>Aplicaciones Esenciales Preparadas</h3>
+              <p class="section-sub">Selecciona las aplicaciones que deseas instalar con un solo clic:</p>
+            </div>
+            <div class="catalog-actions">
+              <button class="btn-ghost active-highlight" id="btn-select-combo">⭐ Seleccionar Combo Changan X7 Plus</button>
+              <button class="btn-ghost" id="btn-select-all">Seleccionar Todas</button>
+              <button class="btn-ghost" id="btn-deselect-all">Desmarcar</button>
+            </div>
+          </div>
+
+          <div class="apps-grid" id="apps-catalog-list">
+            <!-- Dynamic app cards injected by app.js -->
+            <div class="skeleton-card">Cargando catálogo de aplicaciones...</div>
+          </div>
+
+          <!-- DRAG & DROP CUSTOM APK -->
+          <div class="custom-apk-section">
+            <div class="drop-zone" id="drop-zone">
+              <input type="file" id="file-input" accept=".apk" style="display:none;">
+              <svg viewBox="0 0 24 24" width="36" height="36" fill="none" stroke="#00e5ff" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M17 8l-5-5-5 5M12 3v12"/></svg>
+              <h4>Arrastra y suelta aquí cualquier archivo <code>.apk</code> personalizado</h4>
+              <p>O haz clic para examinar archivos en tu computadora. Se instalará automáticamente de forma segura.</p>
+              <button class="btn-browse" id="btn-browse-file">Examinar Archivo APK...</button>
+            </div>
+          </div>
+
+          <!-- ACTION BUTTON & PROGRESS -->
+          <div class="action-footer">
+            <div class="progress-wrap" id="progress-wrap" style="display:none;">
+              <div class="progress-bar-bg">
+                <div class="progress-bar-fill" id="progress-bar-fill" style="width: 0%;"></div>
+              </div>
+              <div class="progress-meta">
+                <span id="progress-status-text">Instalando...</span>
+                <span id="progress-percent-text">0%</span>
+              </div>
+            </div>
+
+            <div class="action-buttons-row">
+              <button class="btn-primary-launch" id="btn-install-selected">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                INSTALAR APLICACIONES SELECCIONADAS
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <!-- TAB 2: INSTALACIÓN SISTEMA (ROOT) - ADVERTENCIA -->
+        <section class="tab-pane" id="tab-root">
+          <div class="danger-banner">
+            <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="#f59e0b" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+            <div>
+              <h3>Aviso Crítico sobre el "Método Antiguo (Root)"</h3>
+              <p>El método de inyectar APKs en <code>/system/app</code> modificando permisos <code>chmod 644</code> fue clasificado como <strong>obsoleto y de alto riesgo</strong> en firmwares recientes de Changan X7 Plus 2024-2026. Puede causar bucles de reinicio (bootloop) si la partición se llena o hay fallos de permisos.</p>
+              <p style="margin-top:6px; color:#94a3b8;"><strong>Recomendación:</strong> Utiliza siempre el <strong>Modo Usuario (ADB)</strong>. Funciona al 100%, incluye todas las funciones de CarPlay y Android Auto, y es completamente seguro.</p>
+            </div>
+          </div>
+
+          <div class="card root-controls-card">
+            <h4>Diagnóstico de Acceso Root</h4>
+            <p>Puedes verificar si el servidor adb de tu radio responde a elevación sin alterar particiones:</p>
+            <div class="btn-group-row">
+              <button class="btn-secondary" id="btn-test-root">Ejecutar 'adb root' de prueba</button>
+              <button class="btn-secondary" id="btn-test-remount">Probar 'adb remount'</button>
+            </div>
+          </div>
+        </section>
+
+        <!-- TAB 3: GESTOR DE APPS INSTALADAS -->
+        <section class="tab-pane" id="tab-manager">
+          <div class="section-header-row">
+            <div>
+              <h3>Aplicaciones Instaladas en la Radio</h3>
+              <p class="section-sub">Lista de aplicaciones de terceros instaladas en el sistema. Puedes desinstalar cualquiera limpiamente.</p>
+            </div>
+            <button class="btn-ghost" id="btn-refresh-installed">Refrescar Lista</button>
+          </div>
+
+          <div class="installed-list-container" id="installed-list-container">
+            <div class="empty-state">Conecta la radio y presiona "Refrescar Lista" para inspeccionar las apps instaladas.</div>
+          </div>
+        </section>
+
+        <!-- TAB 4: AJUSTES & OVERSCAN -->
+        <section class="tab-pane" id="tab-screen">
+          <div class="section-header-row">
+            <div>
+              <h3>Ajustes de Pantalla & Herramientas MT8666</h3>
+              <p class="section-sub">Ajustes útiles para corregir barras de estado, tamaño de interfaz y overscan.</p>
+            </div>
+          </div>
+
+          <div class="tools-grid">
+            <!-- 1. DESCONGELAR PANTALLA -->
+            <div class="tool-card highlight-danger-card">
+              <h4>🚨 Descongelar Pantalla (Liberar Táctil Inmediato)</h4>
+              <p>Si la pantalla se quedó congelada, no responde al tacto o una app multimedia se trabó en segundo plano, usa estos botones para forzar el cierre y recuperar el control:</p>
+              <div class="btn-group-row">
+                <button class="btn-danger-small" id="btn-unfreeze-rimusic">Cerrar Apps Multimedia (Liberar Táctil)</button>
+                <button class="btn-secondary-small" id="btn-unfreeze-all">Detener Todas las Apps de Fondo</button>
+              </div>
+            </div>
+
+            <!-- 2. DOBLE PANTALLA / SPLIT SCREEN -->
+            <div class="tool-card highlight-card">
+              <h4>🪟 Doble Pantalla (Split Screen / Multiventana Android 9)</h4>
+              <p>Habilita la división de pantalla y multiventana nativa del SoC MT8666 para poder usar dos aplicaciones al mismo tiempo (ej: <b>Mapas GPS a la izquierda y Música a la derecha</b>).</p>
+              <button class="btn-primary-small" id="btn-enable-split">Activar Soporte Doble Pantalla</button>
+            </div>
+
+            <!-- 3. MODO PANTALLA COMPLETA INMERSIVA -->
+            <div class="tool-card">
+              <h4>📺 Modo Pantalla Completa Inmersiva</h4>
+              <p>Oculta barras secundarias de sistema en aplicaciones de terceros para que aprovechen al 100% el panel panorámico del auto.</p>
+              <div class="btn-group-row">
+                <button class="btn-primary-small" id="btn-fullscreen-enable">Activar Pantalla Completa</button>
+                <button class="btn-secondary-small" id="btn-fullscreen-disable">Restablecer a Normal</button>
+              </div>
+            </div>
+
+            <!-- 4. REPARAR BOTON ATRAS -->
+            <div class="tool-card">
+              <h4>🔙 Reparar & Forzar Botón Atrás Flotante (Back Button)</h4>
+              <p>Inyecta permisos especiales de superposición y accesibilidad del sistema mediante ADB para que la flecha flotante de salir aparezca de inmediato en la pantalla.</p>
+              <button class="btn-primary-small" id="btn-fix-back">Inyectar & Activar Botón Atrás</button>
+            </div>
+
+            <!-- 5. OVERSCAN -->
+            <div class="tool-card">
+              <h4>Ajustar Margen de Pantalla (Overscan)</h4>
+              <p>En algunas versiones de Changan X7 Plus, la barra superior puede tapar botones en apps. El comando overscan ajusta dicho margen.</p>
+              <div class="input-action-row">
+                <input type="text" id="overscan-input" value="0,-50,0,0" placeholder="left,top,right,bottom">
+                <button class="btn-primary-small" id="btn-apply-overscan">Aplicar Overscan</button>
+                <button class="btn-secondary-small" id="btn-reset-overscan">Restablecer (0,0,0,0)</button>
+              </div>
+            </div>
+
+            <!-- 6. REINICIO ADB -->
+            <div class="tool-card">
+              <h4>Reiniciar Radio</h4>
+              <p>Aplica un reinicio suave (soft reboot) mediante ADB sin desconectar la batería del vehículo.</p>
+              <button class="btn-secondary" id="btn-screen-reboot">Reiniciar Radio por ADB</button>
+            </div>
+          </div>
+        </section>
+
+        <!-- TAB 5: LANZADOR COCKPIT (MODO OSCURO X7 PLUS) -->
+        <section class="tab-pane" id="tab-cockpit">
+          <div class="hero-banner">
+            <div class="hero-icon-wrap" style="background: rgba(56, 189, 248, 0.15); border-color: rgba(56, 189, 248, 0.4);">
+              <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="#38bdf8" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+            </div>
+            <div class="hero-text">
+              <h2>Lanzador Cockpit Luxury · Changan X7 Plus</h2>
+              <p>Interfaz de diseño panorámico estilo SUV de lujo con fondo nocturno, reloj digital en tiempo real, reproductor multimedia dinámico y tarjetas interactivas de cristal (*Glassmorphism*).</p>
+            </div>
+            <div style="margin-left: auto;">
+              <a href="cockpit.html" target="_blank" class="btn-primary-launch" style="padding: 10px 18px; font-size: 13px; text-decoration: none; display: inline-flex; align-items: center; gap: 8px;">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                Abrir Cockpit a Pantalla Completa
+              </a>
+            </div>
+          </div>
+
+          <!-- INTERACTIVE LIVE PREVIEW -->
+          <div class="cockpit-preview-frame" style="border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 16px; overflow: hidden; background: #030710; box-shadow: 0 12px 36px rgba(0,0,0,0.7); position: relative; height: 380px;">
+            <iframe src="cockpit.html" style="width: 100%; height: 100%; border: none;"></iframe>
+          </div>
+
+          <div class="tools-grid" style="margin-top: 18px;">
+            <div class="tool-card highlight-card" style="border-color: rgba(56, 189, 248, 0.4);">
+              <h4>🚘 Auto-Arranque Nativo al Encender el Vehículo</h4>
+              <p>Al instalar el APK <code>x7_cockpit_launcher.apk</code> y fijarlo con el botón inferior, la radio arrancará automáticamente en esta interfaz ni bien enciendas el auto, sin pasar por el menú original ni requerir ninguna acción manual adicional:</p>
+              <ul style="padding-left: 18px; font-size: 12.5px; color: #cbd5e1; line-height: 1.6;">
+                <li><b>Barra de Favoritos:</b> Acceso directo rápido a Radio, Música, Bluetooth, Navegador y botón <code>+</code> para fijar tus apps preferidas.</li>
+                <li><b>Widgets Dinámicos:</b> Reloj digital en vivo con fecha en español, reproductor interactivo y HUDs automotrices (Cámara 360, Climatización, Vehículo).</li>
+                <li><b>100% Reversible y Seguro:</b> Puedes volver al lanzador Changan OnStyle de fábrica en cualquier momento con un solo clic.</li>
+              </ul>
+            </div>
+
+            <div class="tool-card" style="background: rgba(14, 165, 233, 0.08); border-color: rgba(14, 165, 233, 0.3);">
+              <h4>🚀 Instalación y Auto-Arranque en 1 Clic</h4>
+              <p>Instala el paquete oficial en tu pantalla panorámica y configúralo como la aplicación Home por defecto del sistema Android 9:</p>
+              <div class="btn-group-row" style="margin-top: 10px;">
+                <button class="btn-primary" id="btn-set-default-launcher" style="padding: 11px 20px; font-weight: 700; background: linear-gradient(135deg, #0284c7, #2563eb); border: none; box-shadow: 0 4px 16px rgba(14, 165, 233, 0.4);">
+                  ⭐ INSTALAR Y FIJAR COMO LAUNCHER POR DEFECTO
+                </button>
+                <button class="btn-secondary-small" id="btn-reset-launcher" style="align-self: center;">
+                  Restablecer a Fábrica (OnStyle)
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- TAB KEYMAP: MAPEO DE TECLAS Y TIMÓN DEL AUTO -->
+        <section class="tab-pane" id="tab-keymap">
+          <div class="hero-banner">
+            <div class="hero-icon-wrap" style="background: rgba(56, 189, 248, 0.15); border-color: rgba(56, 189, 248, 0.4);">
+              <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="#38bdf8" stroke-width="2">
+                <circle cx="12" cy="12" r="9"/>
+                <circle cx="12" cy="12" r="3"/>
+                <line x1="12" y1="3" x2="12" y2="9"/>
+                <line x1="12" y1="15" x2="12" y2="21"/>
+                <line x1="3" y1="12" x2="9" y2="12"/>
+                <line x1="15" y1="12" x2="21" y2="12"/>
+              </svg>
+            </div>
+            <div class="hero-text">
+              <h2>Mapeo de Teclados & Volante del Auto (Hardware Keys)</h2>
+              <p>Captura en tiempo real cada pulsación física del volante (Volumen, Canción, Teléfono, Mute, Modo) y botones de la consola central (Cámara 360, Home). Audita eventos en vivo, prueba transmisiones directas y exporta el log para soporte o mejoras.</p>
+            </div>
+            <div style="margin-left: auto; display: flex; gap: 8px;">
+              <button class="btn-primary-launch" id="btn-keymap-toggle" style="padding: 10px 18px; font-size: 13px; background: linear-gradient(135deg, #10b981, #059669);">
+                <span id="keymap-toggle-icon">▶</span> <span id="keymap-toggle-text">Iniciar Escaneo en Vivo</span>
+              </button>
+              <button class="btn-secondary" id="btn-keymap-save-log" style="padding: 10px 16px; font-size: 13px;">
+                💾 Guardar Log
+              </button>
+            </div>
+          </div>
+
+          <!-- STATUS & STATS BAR -->
+          <div class="keymap-status-bar" style="display: flex; align-items: center; justify-content: space-between; background: rgba(15, 23, 42, 0.6); border: 1px solid rgba(255, 255, 255, 0.08); padding: 12px 18px; border-radius: 12px; margin-bottom: 18px;">
+            <div style="display: flex; align-items: center; gap: 12px;">
+              <span class="pulse-indicator disconnected" id="keymap-pulse" style="width: 10px; height: 10px;"></span>
+              <span style="font-size: 13px; font-weight: 600; color: #cbd5e1;">Estado del Monitor: <strong id="keymap-status-label" style="color: #94a3b8;">Detenido</strong></span>
+              <span style="font-size: 12px; color: #64748b;">•</span>
+              <span style="font-size: 13px; color: #cbd5e1;">Eventos capturados: <strong id="keymap-count-badge" style="color: #38bdf8;">0</strong></span>
+            </div>
+            <div style="display: flex; gap: 10px; align-items: center;">
+              <span id="keymap-download-link-wrap" style="display:none;">
+                <a id="keymap-download-link" href="#" target="_blank" class="badge-link" style="color: #38bdf8; text-decoration: underline; font-size: 12px;">📥 Descargar último registro (.txt)</a>
+              </span>
+              <button class="btn-ghost" id="btn-keymap-clear" style="padding: 6px 12px; font-size: 12px;">Limpiar Pantalla</button>
+            </div>
+          </div>
+
+          <!-- TWO-COLUMN WORKSPACE: LEFT LIVE STREAM, RIGHT HARDWARE & CAN-BUS TESTER -->
+          <div style="display: grid; grid-template-columns: 1.4fr 1fr; gap: 18px;">
+            
+            <!-- LEFT: LIVE KEY EVENT TERMINAL -->
+            <div class="card" style="padding: 18px; display: flex; flex-direction: column; min-height: 480px;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid rgba(255, 255, 255, 0.08);">
+                <div style="display: flex; align-items: center; gap: 8px;">
+                  <span style="background: rgba(56, 189, 248, 0.2); color: #38bdf8; font-size: 11px; font-weight: 700; padding: 3px 8px; border-radius: 6px;">GETEVENT STREAM</span>
+                  <h4 style="font-size: 14px; margin: 0;">Pulsaciones Detectadas en el Auto</h4>
+                </div>
+                <small style="color: #64748b; font-size: 11px;">Muestra eventos de /dev/input/*</small>
+              </div>
+
+              <!-- EVENTS LIST CONTAINER -->
+              <div id="keymap-events-container" style="flex: 1; overflow-y: auto; max-height: 420px; font-family: var(--font-mono); font-size: 12px; display: flex; flex-direction: column; gap: 6px; padding-right: 4px;">
+                <div class="keymap-empty-state" style="text-align: center; color: #64748b; padding: 60px 20px;">
+                  <div style="font-size: 32px; margin-bottom: 10px;">🎮</div>
+                  <strong style="color: #94a3b8; font-size: 14px;">El monitor de teclas está listo</strong>
+                  <p style="font-size: 12px; margin-top: 6px;">Haz clic en <b>"Iniciar Escaneo en Vivo"</b> y presiona cualquier botón en el timón o consola del auto para ver el código en tiempo real.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- RIGHT: HARDWARE TESTER & CAN-BUS TRIGGER ACTIONS -->
+            <div style="display: flex; flex-direction: column; gap: 16px;">
+              
+              <!-- EXPLICACIÓN TÉCNICA VOLANTE CHANGAN X7 PLUS -->
+              <div class="card" style="padding: 16px; border-left: 4px solid #38bdf8; background: rgba(15, 23, 42, 0.75);">
+                <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
+                  <span style="font-size: 16px;">🚗</span>
+                  <h4 style="color: #38bdf8; font-size: 13.5px; margin: 0; text-transform: uppercase; letter-spacing: 0.5px;">Arquitectura de Botones del Timón</h4>
+                </div>
+                <div style="font-size: 12px; color: #cbd5e1; line-height: 1.55;">
+                  <p style="margin-bottom: 6px;"><b>• Botones Derechos (Multimedia):</b> Vol+, Vol-, Anterior, Siguiente, Mute, Teléfono y Home. Son leídos por Android vía el controlador MCU como eventos de teclado (Keycodes 24, 25, 87, 88, 164, 5, 3).</p>
+                  <p style="margin-bottom: 0; color: #94a3b8;"><b>• Botones Izquierdos (Crucero/Cluster):</b> RES+, SET-, Distancia ADAS y Pantalla del Conductor. Pertenecen al bus de carrocería (BCM / CAN del tablero digital) y no pasan a la radio multimedia.</p>
+                </div>
+              </div>
+
+              <!-- 4 NUEVAS HERRAMIENTAS DE CORRECCIÓN 1-CLIC (AUDITORÍA OCTUBRE 2026) -->
+              <div class="card" style="padding: 18px; border-color: rgba(245, 158, 11, 0.35); box-shadow: 0 0 20px rgba(245, 158, 11, 0.08);">
+                <h4 style="color: #f59e0b; font-size: 14px; margin-bottom: 8px; display: flex; align-items: center; gap: 8px;">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+                  Soluciones Rápidas de Diagnóstico & Reparación
+                </h4>
+                <p style="font-size: 12px; color: #94a3b8; margin-bottom: 12px;">Repara en 1 clic los problemas reportados en las pruebas de campo:</p>
+                
+                <div style="display: flex; flex-direction: column; gap: 8px;">
+                  <!-- GPS Restore -->
+                  <button class="btn-core blue" id="btn-restore-gps" style="padding: 9px 12px; font-size: 12px; justify-content: flex-start; text-align: left;">
+                    🛰️ Restablecer GPS Físico Nativo (Soluciona "No me lleva a ningún lado")
+                  </button>
+                  <!-- OwnTV Inject -->
+                  <button class="btn-core emerald" id="btn-inject-owntv" style="padding: 9px 12px; font-size: 12px; justify-content: flex-start; text-align: left;">
+                    📺 Inyectar 371 Canales VIP en OwnTV (Soluciona "Sin fuente")
+                  </button>
+                  <!-- SimpMusic Fix -->
+                  <button class="btn-core purple" id="btn-fix-simpmusic" style="padding: 9px 12px; font-size: 12px; justify-content: flex-start; text-align: left;">
+                    🛠️ Corregir Superposición SimpMusic (Libera el botón engranaje)
+                  </button>
+                  <!-- Wi-Fi & HUR Assistant -->
+                  <button class="btn-core cyan" id="btn-wifi-hur-guide" style="padding: 9px 12px; font-size: 12px; justify-content: flex-start; text-align: left;">
+                    📶 Asistente Wi-Fi 2.4 GHz & HUR (Soluciona "Fuera de alcance")
+                  </button>
+                </div>
+              </div>
+
+              <!-- TEST VIRTUAL INPUTS -->
+              <div class="card" style="padding: 18px;">
+                <h4 style="color: #38bdf8; font-size: 14px; margin-bottom: 8px; display: flex; align-items: center; gap: 8px;">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/><line x1="12" y1="3" x2="12" y2="9"/><line x1="12" y1="15" x2="12" y2="21"/><line x1="3" y1="12" x2="9" y2="12"/><line x1="15" y1="12" x2="21" y2="12"/></svg>
+                  Simulador de Teclas del Timón
+                </h4>
+                <p style="font-size: 12px; color: #94a3b8; margin-bottom: 12px;">Envía keyevents directamente al sistema de la radio para verificar respuesta visual o volumen:</p>
+                
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
+                  <button class="btn-secondary-small btn-key-test" data-key="24" style="text-align: left; padding: 8px 10px;">🔊 Vol + (Key 24)</button>
+                  <button class="btn-secondary-small btn-key-test" data-key="25" style="text-align: left; padding: 8px 10px;">🔉 Vol - (Key 25)</button>
+                  <button class="btn-secondary-small btn-key-test" data-key="87" style="text-align: left; padding: 8px 10px;">⏭ Siguiente (Key 87)</button>
+                  <button class="btn-secondary-small btn-key-test" data-key="88" style="text-align: left; padding: 8px 10px;">⏮ Anterior (Key 88)</button>
+                  <button class="btn-secondary-small btn-key-test" data-key="85" style="text-align: left; padding: 8px 10px;">⏯ Play / Pause (85)</button>
+                  <button class="btn-secondary-small btn-key-test" data-key="164" style="text-align: left; padding: 8px 10px;">🔇 Mute (Key 164)</button>
+                  <button class="btn-secondary-small btn-key-test" data-key="5" style="text-align: left; padding: 8px 10px;">📞 Llamar (Key 5)</button>
+                  <button class="btn-secondary-small btn-key-test" data-key="6" style="text-align: left; padding: 8px 10px;">📴 Colgar (Key 6)</button>
+                  <button class="btn-secondary-small btn-key-test" data-key="3" style="text-align: left; padding: 8px 10px;">🏠 Home (Key 3)</button>
+                  <button class="btn-secondary-small btn-key-test" data-key="4" style="text-align: left; padding: 8px 10px;">◀ Back (Key 4)</button>
+                </div>
+              </div>
+
+              <!-- TEST OEM CAN-BUS BROADCASTS & CAMERAS -->
+              <div class="card" style="padding: 18px;">
+                <h4 style="color: #10b981; font-size: 14px; margin-bottom: 8px; display: flex; align-items: center; gap: 8px;">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+                  Disparadores CanBus & Cámaras OEM
+                </h4>
+                <p style="font-size: 12px; color: #94a3b8; margin-bottom: 12px;">Prueba las órdenes automotrices nativas de Changan sin necesidad de poner reversa:</p>
+                
+                <div style="display: flex; flex-direction: column; gap: 8px;">
+                  <button class="btn-core blue" id="btn-test-cam-avm" style="padding: 9px 14px; font-size: 12px; justify-content: flex-start; text-align: left;">
+                    📷 Abrir Cámara 360° AVM (com.chinatsp.avmlive)
+                  </button>
+                  <button class="btn-core emerald" id="btn-test-cam-can" style="padding: 9px 14px; font-size: 12px; justify-content: flex-start; text-align: left;">
+                    📡 Transmitir Broadcast CanBus AVM_DISPLAY_SWITCH
+                  </button>
+                  <button class="btn-core purple" id="btn-test-cam-hd" style="padding: 9px 14px; font-size: 12px; justify-content: flex-start; text-align: left;">
+                    📹 Abrir Grabador DVR Cámara HD (BuiltinHDCameraActivity)
+                  </button>
+                  <button class="btn-secondary-small" id="btn-test-cam-dvr" style="padding: 9px 14px; font-size: 12px; justify-content: flex-start; text-align: left;">
+                    📼 Abrir Aplicación DVR Principal (DVRMainActivity)
+                  </button>
+                  <button class="btn-secondary-small" id="btn-test-gps-diag" style="padding: 9px 14px; font-size: 12px; justify-content: flex-start; text-align: left;">
+                    🛰️ Verificar Receptor Físico GPS GNSS MT8666
+                  </button>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        </section>
+
+        <!-- TAB 6: PASO A PASO Y GUÍA COMPLETA -->
+        <section class="tab-pane" id="tab-guide">
+          <div class="guide-container">
+            <h3>📖 GUÍA PASO A PASO: CONFIGURACIÓN DEFINITIVA CHANGAN X7 PLUS</h3>
+
+            <!-- PASO 1 -->
+            <div class="guide-method-card star-highlight">
+              <div class="method-badge">🔌 PASO 1: CONEXIÓN FÍSICA Y ACTIVACIÓN (**888)</div>
+              <h4>Cómo enlazar tu computadora con la radio en 1 minuto:</h4>
+              <ol class="method-steps-list">
+                <li>Enciende el motor de tu Changan X7 Plus (para evitar que la radio entre en modo de ahorro de energía).</li>
+                <li>Conecta el cable USB Macho a Macho entre tu laptop y el <b>puerto USB frontal multimedia</b> del vehículo (el que lee pendrives de música / CarPlay).</li>
+                <li>En la pantalla táctil de la radio, ve al marcador del teléfono y escribe: <code>**888</code>.</li>
+                <li>Se abrirá el menú oculto de <b>Opciones de Desarrollador</b>. Enciende el interruptor de <b>Depuración por USB</b>. (En ese momento escucharás el sonido de conexión <i>"turu"</i> en tu laptop).</li>
+                <li>Si aparece una ventana en la radio preguntando <i>"¿Permitir depuración USB?"</i>, marca <b>"Permitir siempre"</b> y toca <b>Aceptar</b>.</li>
+                <li>En la barra superior de esta aplicación verás el indicador en verde: <b>🟢 Changan X7 Plus Conectado</b>.</li>
+              </ol>
+            </div>
+
+            <!-- PASO 2 -->
+            <div class="guide-method-card">
+              <div class="method-badge">📦 PASO 2: INSTALACIÓN DEL COMBO DORADO DE APPS</div>
+              <h4>Las aplicaciones probadas que no fallan, no tienen cortes y no congelan la pantalla:</h4>
+              <ol class="method-steps-list">
+                <li>En la barra lateral izquierda, pulsa en <b>Usuario (ADB)</b>.</li>
+                <li>Haz clic en el botón <b>⭐ Seleccionar Combo Changan X7 Plus</b>. Automáticamente se marcarán las mejores aplicaciones:
+                  <ul style="margin: 6px 0 6px 16px; font-size: 12px; color: #94a3b8;">
+                    <li><b>SmartTube Pro:</b> YouTube automotriz sin anuncios, sin SponsorBlock y sin "Source Error".</li>
+                    <li><b>ViMusic (X7 Music):</b> Catálogo completo de canciones, ultraligero (2.5 MB), nunca se rebobina a la mitad y permite escuchar sin internet.</li>
+                    <li><b>Organic Maps GPS:</b> Navegación satelital paso a paso con radares y voz, 100% offline sin gastar datos.</li>
+                    <li><b>AutoKit (X7 CarLink):</b> Apple CarPlay y Android Auto a 60 FPS con pantalla dividida.</li>
+                    <li><b>Taskbar:</b> Soporte para Doble Pantalla (Split Screen) en Android 9.</li>
+                    <li><b>Back Button:</b> Botón flotante para salir de cualquier app.</li>
+                    <li><b>Amaze File Manager & Droid-ify:</b> Explorador para memorias USB y tienda de apps.</li>
+                  </ul>
+                </li>
+                <li>Pulsa el botón grande <b>INSTALAR APLICACIONES SELECCIONADAS</b> y espera a que el progreso llegue al 100%.</li>
+              </ol>
+            </div>
+
+            <!-- PASO 3 -->
+            <div class="guide-method-card">
+              <div class="method-badge">🖥️ PASO 3: CÓMO LOGRAR LA INTERFAZ LUXURY COCKPIT (MODO OSCURO)</div>
+              <h4>Para tener la estética futurista de la foto:</h4>
+              <ol class="method-steps-list">
+                <li>Ve a la pestaña <b>Cockpit X7 Plus</b> en la barra lateral.</li>
+                <li>Puedes probarla en vivo haciendo clic en <b>"Abrir Cockpit a Pantalla Completa"</b>. Verás el reloj sincronizado en tiempo real, el widget musical y las 6 tarjetas de cristal.</li>
+                <li>Al tocar <i>Navegación</i>, <i>Música</i> o <i>Cámara 360</i>, el comando se envía a la radio para abrir la función correspondiente.</li>
+                <li>En la pestaña <i>Ajustes & Pantalla</i> puedes pulsar <b>"Activar Pantalla Completa Inmersiva"</b> para ocultar barras de notificación secundarias.</li>
+              </ol>
+            </div>
+
+            <!-- PASO 4 -->
+            <div class="guide-method-card">
+              <div class="method-badge">🪟 PASO 4: CÓMO USAR LA DOBLE PANTALLA (SPLIT SCREEN)</div>
+              <h4>Llevar GPS a la izquierda y Música a la derecha al mismo tiempo:</h4>
+              <ol class="method-steps-list">
+                <li>En esta aplicación, entra a la pestaña <b>Ajustes & Pantalla</b>.</li>
+                <li>Haz clic en <b>"Activar Soporte Doble Pantalla"</b>. La radio habilitará el modo multiventana de Android 9.</li>
+                <li>En la pantalla de tu auto, abre la app <b>Taskbar</b> y enciende el interruptor. Verás un pequeño botón de inicio en la esquina inferior.</li>
+                <li>Abre <b>Organic Maps</b> y mantén presionado su ícono en Taskbar o desliza para anclarlo en la mitad izquierda. Luego abre <b>ViMusic</b> en la mitad derecha.</li>
+                <li>¡Listo! Tendrás la pantalla panorámica dividida en dos aplicaciones simultáneas exactamente como en los autos de gama alta.</li>
+              </ol>
+            </div>
+
+            <!-- PASO 5 -->
+            <div class="guide-method-card">
+              <div class="method-badge">🚨 PASO 5: QUÉ HACER SI LA PANTALLA SE TRABA (DESCONGELAR TÁCTIL)</div>
+              <h4>Recuperar el control si una app pesada colapsa:</h4>
+              <ul class="method-check-list">
+                <li>Si abriste una app pesada y la pantalla no responde al tacto:</li>
+                <li>Simplemente conecta la laptop y presiona el botón rojo superior <b>"🚨 Descongelar Táctil"</b>.</li>
+                <li>El sistema detendrá la app colgada por ADB en 1 segundo y el táctil de la radio se liberará de inmediato.</li>
+              </ul>
+            </div>
+
+            <!-- PASO 6 -->
+            <div class="guide-method-card star-highlight">
+              <div class="method-badge">💼 PASO 6: 100% PORTABLE (NO REQUIERE PYTHON EN NINGUNA PC)</div>
+              <h4>Puedes llevar esta carpeta en cualquier pendrive a cualquier computadora:</h4>
+              <ul class="method-check-list">
+                <li>El proyecto ya incluye su propio **Runtime Portable integrado** en la carpeta <code>runtime/</code>.</li>
+                <li>No necesitas instalar Python, ni Node.js, ni librerías adicionales en ninguna laptop.</li>
+                <li>Solo haz doble clic en <code>INICIAR_HU_INSTALLER.bat</code> y funcionará al instante en cualquier Windows 10 o 11.</li>
+              </ul>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- TAB 7: ESTADO DEL PROYECTO & REGISTRO DE AVANCES -->
+        <section class="tab-pane" id="tab-updates">
+          <div class="hero-card" style="margin-bottom: 20px;">
+            <div class="hero-icon" style="background: rgba(16, 185, 129, 0.15); border-color: #10b981;">
+              <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="#10b981" stroke-width="2">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                <polyline points="22 4 12 14.01 9 11.01"/>
+              </svg>
+            </div>
+            <div class="hero-text">
+              <h2>Matriz de Control de Calidad & Registro de Avances</h2>
+              <p>Auditoría visual en tiempo real de cada actualización: qué componentes están 100% operativos, qué mejoras estamos construyendo activamente y el diagnóstico forense de fallas resueltas.</p>
+            </div>
+            <div style="margin-left: auto; display: flex; gap: 8px;">
+              <a href="/api/download_report?file=MATRIZ_ESTADO_Y_AVANCES_PROYECTO.md" target="_blank" class="btn-primary-launch" style="padding: 10px 18px; font-size: 13px; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; background: linear-gradient(135deg, #0284c7, #0369a1);">
+                <span>📥 Descargar Informe Completo (.md)</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- SUMMARY KPI CARDS (SEMÁFORO) -->
+          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 24px;">
+            <div class="card" style="padding: 18px; border-left: 4px solid #10b981; background: rgba(16, 185, 129, 0.05);">
+              <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px;">
+                <span style="font-size: 12px; font-weight: 700; color: #10b981; text-transform: uppercase;">🟢 Funcionando (Estable)</span>
+                <span style="background: rgba(16, 185, 129, 0.2); color: #10b981; font-weight: 700; font-size: 13px; padding: 2px 8px; border-radius: 99px;">6 Módulos</span>
+              </div>
+              <div style="font-size: 20px; font-weight: 800; color: #f8fafc;">100% Verificado</div>
+              <p style="font-size: 12px; color: #94a3b8; margin-top: 6px;">Launcher fondo SUV, dial radio neón, suite portable sin Python, mapeo dual y log continuo.</p>
+            </div>
+
+            <div class="card" style="padding: 18px; border-left: 4px solid #f59e0b; background: rgba(245, 158, 11, 0.05);">
+              <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px;">
+                <span style="font-size: 12px; font-weight: 700; color: #f59e0b; text-transform: uppercase;">🟡 Estamos Creando</span>
+                <span style="background: rgba(245, 158, 11, 0.2); color: #f59e0b; font-weight: 700; font-size: 13px; padding: 2px 8px; border-radius: 99px;">2 Módulos</span>
+              </div>
+              <div style="font-size: 20px; font-weight: 800; color: #f8fafc;">En Desarrollo Activo</div>
+              <p style="font-size: 12px; color: #94a3b8; margin-top: 6px;">Purga profunda de apps fantasma en OnStyle y vinculador de teclas físicas a acciones del Launcher.</p>
+            </div>
+
+            <div class="card" style="padding: 18px; border-left: 4px solid #ef4444; background: rgba(239, 68, 68, 0.05);">
+              <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px;">
+                <span style="font-size: 12px; font-weight: 700; color: #ef4444; text-transform: uppercase;">🔴 Fallas Resueltas</span>
+                <span style="background: rgba(239, 68, 68, 0.2); color: #ef4444; font-weight: 700; font-size: 13px; padding: 2px 8px; border-radius: 99px;">4 Solucionadas</span>
+              </div>
+              <div style="font-size: 20px; font-weight: 800; color: #f8fafc;">Causa Raíz Identificada</div>
+              <p style="font-size: 12px; color: #94a3b8; margin-top: 6px;">Pantalla negra por AAPT IDs, icono duplicado radio/música y búfer de logcat corregidos.</p>
+            </div>
+          </div>
+
+          <!-- DETAILED SECTIONS GRID -->
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+            
+            <!-- LEFT: 🟢 QUÉ ESTÁ FUNCIONANDO & 🟡 QUÉ ESTAMOS CREANDO -->
+            <div style="display: flex; flex-direction: column; gap: 18px;">
+              <div class="card" style="padding: 20px;">
+                <h3 style="color: #10b981; font-size: 15px; margin-bottom: 14px; display: flex; align-items: center; gap: 8px;">
+                  <span style="font-size: 16px;">🟢</span> Componentes 100% Operativos y Comprobados
+                </h3>
+                <div style="display: flex; flex-direction: column; gap: 12px;">
+                  <div style="background: rgba(15, 23, 42, 0.5); padding: 12px 14px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.05);">
+                    <div style="font-weight: 700; color: #f1f5f9; font-size: 13px;">🖼️ Launcher Cockpit OEM con Fondo de Carretera</div>
+                    <div style="color: #94a3b8; font-size: 12px; margin-top: 4px;">Renderiza la SUV Changan en autopista húmeda en 1920x720 ultra-panorámico sin pantallas negras.</div>
+                  </div>
+                  <div style="background: rgba(15, 23, 42, 0.5); padding: 12px 14px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.05);">
+                    <div style="font-weight: 700; color: #f1f5f9; font-size: 13px;">📻 Tarjeta de Radio FM/AM con Dial Neón Único</div>
+                    <div style="color: #94a3b8; font-size: 12px; margin-top: 4px;">Sintonizador digital en cian neón con ecualizador, 100% diferenciado de la torna-mesa de vinilo de música.</div>
+                  </div>
+                  <div style="background: rgba(15, 23, 42, 0.5); padding: 12px 14px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.05);">
+                    <div style="font-weight: 700; color: #f1f5f9; font-size: 13px;">🎮 Mapeo en Vivo de Teclas y Timón (/dev/input + CAN)</div>
+                    <div style="color: #94a3b8; font-size: 12px; margin-top: 4px;">Captura Vol+, Vol-, Mute, Next, Prev, Teléfono y Cámara 360 al presionar los mandos físicos del volante.</div>
+                  </div>
+                  <div style="background: rgba(15, 23, 42, 0.5); padding: 12px 14px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.05);">
+                    <div style="font-weight: 700; color: #f1f5f9; font-size: 13px;">💾 Auto-Guardado Continuo Anti-Desconexión</div>
+                    <div style="color: #94a3b8; font-size: 12px; margin-top: 4px;">Cada pulsación se persiste en <code>informes/registro_teclas_sesion_en_vivo.txt</code> al instante sin perder nada.</div>
+                  </div>
+                  <div style="background: rgba(15, 23, 42, 0.5); padding: 12px 14px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.05);">
+                    <div style="font-weight: 700; color: #f1f5f9; font-size: 13px;">💼 Suite Portable con Runtime Embebido</div>
+                    <div style="color: #94a3b8; font-size: 12px; margin-top: 4px;">No requiere Python en la laptop del usuario; se inicia con doble clic y abre el Dashboard directamente.</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 🟡 QUÉ ESTAMOS CREANDO -->
+              <div class="card" style="padding: 20px;">
+                <h3 style="color: #f59e0b; font-size: 15px; margin-bottom: 14px; display: flex; align-items: center; gap: 8px;">
+                  <span style="font-size: 16px;">🟡</span> Qué Estamos Creando en la Próxima Actualización
+                </h3>
+                <div style="display: flex; flex-direction: column; gap: 12px;">
+                  <div style="background: rgba(15, 23, 42, 0.5); padding: 12px 14px; border-radius: 8px; border: 1px solid rgba(245, 158, 11, 0.15);">
+                    <div style="font-weight: 700; color: #f1f5f9; font-size: 13px;">🧹 Limpiador Profundo de Cuadrícula SQLite (OnStyle)</div>
+                    <div style="color: #94a3b8; font-size: 12px; margin-top: 4px;">Comando que purga la base de datos <code>launcher.db</code> de fábrica para que desaparezcan los recuadros vacíos de "apps fantasma" tras desinstalaciones.</div>
+                  </div>
+                  <div style="background: rgba(15, 23, 42, 0.5); padding: 12px 14px; border-radius: 8px; border: 1px solid rgba(245, 158, 11, 0.15);">
+                    <div style="font-weight: 700; color: #f1f5f9; font-size: 13px;">🎯 Vinculación Automática de Teclas del Timón</div>
+                    <div style="color: #94a3b8; font-size: 12px; margin-top: 4px;">Con el archivo de log que obtengas del timón, enlazaremos el botón de voz para abrir el asistente y el botón de cámara para disparar la vista AVM 360.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- RIGHT: 🔴 QUÉ ESTUVO FALLANDO Y CÓMO SE CORRIGIÓ -->
+            <div class="card" style="padding: 20px;">
+              <h3 style="color: #ef4444; font-size: 15px; margin-bottom: 14px; display: flex; align-items: center; gap: 8px;">
+                <span style="font-size: 16px;">🔴</span> Diagnóstico de Fallas Reportadas y Soluciones Aplicadas
+              </h3>
+              <div style="display: flex; flex-direction: column; gap: 14px;">
+                
+                <div style="background: rgba(15, 23, 42, 0.5); padding: 14px; border-radius: 8px; border-left: 3px solid #ef4444;">
+                  <div style="font-weight: 700; color: #f87171; font-size: 13px;">1. Pantalla negra en el launcher tras "Instalar Todo"</div>
+                  <div style="color: #cbd5e1; font-size: 12px; margin-top: 4px;"><b>Causa:</b> AAPT reasignó los IDs numéricos de recursos en la recompilación, y el fondo apuntó a la capa negra del dock inferior.</div>
+                  <div style="color: #34d399; font-size: 12px; margin-top: 4px;"><b>Solución:</b> Se migró el código a nombres de recursos inmutables (<code>bg_cockpit</code>) vía <code>getIdentifier()</code>. Verificado con captura en emulador.</div>
+                </div>
+
+                <div style="background: rgba(15, 23, 42, 0.5); padding: 14px; border-radius: 8px; border-left: 3px solid #ef4444;">
+                  <div style="font-weight: 700; color: #f87171; font-size: 13px;">2. Tarjeta de Música y Radio tenían imagen repetida</div>
+                  <div style="color: #cbd5e1; font-size: 12px; margin-top: 4px;"><b>Causa:</b> El archivo <code>card_radio.png</code> contenía una copia idéntica del disco de vinilo de música.</div>
+                  <div style="color: #34d399; font-size: 12px; margin-top: 4px;"><b>Solución:</b> Se diseñó un dial digital de radio automotriz en cian neón con ecualizador de ondas de sonido.</div>
+                </div>
+
+                <div style="background: rgba(15, 23, 42, 0.5); padding: 14px; border-radius: 8px; border-left: 3px solid #ef4444;">
+                  <div style="font-weight: 700; color: #f87171; font-size: 13px;">3. "Apps Fantasma" (Espacios vacíos en la cuadrícula)</div>
+                  <div style="color: #cbd5e1; font-size: 12px; margin-top: 4px;"><b>Causa:</b> El launcher de fábrica OnStyle almacena las posiciones en una base de datos SQLite y no las borraba al desinstalar por ADB.</div>
+                  <div style="color: #34d399; font-size: 12px; margin-top: 4px;"><b>Solución:</b> Añadido refresco forzado y purga de caché con <code>am force-stop</code> y reseteo de cuadrícula en el script de restauración.</div>
+                </div>
+
+                <div style="background: rgba(15, 23, 42, 0.5); padding: 14px; border-radius: 8px; border-left: 3px solid #ef4444;">
+                  <div style="font-weight: 700; color: #f87171; font-size: 13px;">4. Retraso en el streaming de teclas en Windows</div>
+                  <div style="color: #cbd5e1; font-size: 12px; margin-top: 4px;"><b>Causa:</b> El búfer estándar de 8 KB de Python en Windows demoraba en entregar las líneas de <code>getevent</code> y <code>logcat</code>.</div>
+                  <div style="color: #34d399; font-size: 12px; margin-top: 4px;"><b>Solución:</b> Se configuró <code>bufsize=1</code> con <code>readline()</code> y escucha dual simultánea para milisegundos de respuesta.</div>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+        </section>
+      </div>
+
+      <!-- BOTTOM REAL-TIME ADB TERMINAL -->
+      <footer class="terminal-panel">
+        <div class="terminal-header">
+          <div class="terminal-title">
+            <span class="terminal-badge">ADB LOG</span>
+            <span>Salida de Consola en Tiempo Real</span>
+          </div>
+          <div class="terminal-actions">
+            <button class="term-btn" id="btn-clear-term">Limpiar</button>
+            <button class="term-btn" id="btn-copy-term">Copiar</button>
+          </div>
+        </div>
+
+        <div class="terminal-body" id="terminal-body">
+          <div class="term-line info">[SISTEMA] HU Installer Changan X7 Plus iniciado correctamente.</div>
+          <div class="term-line info">[SISTEMA] Verificando servidor ADB local en C:\Users\...\platform-tools\adb.exe...</div>
+        </div>
+
+        <div class="terminal-input-bar">
+          <span class="prompt-symbol">$ adb</span>
+          <input type="text" id="custom-adb-input" placeholder="Escribe un comando adb (ej: devices, shell getprop, reboot)...">
+          <button class="btn-send-cmd" id="btn-send-cmd">Ejecutar</button>
+        </div>
+      </footer>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

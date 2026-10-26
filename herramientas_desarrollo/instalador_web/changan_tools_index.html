@@ -1,0 +1,243 @@
+<!doctype html><html lang="es"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Instalar — Changan Tools</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#070A0C;--panel:#0E1512;--line:#1c2622;--green:#3ADE8F;--txt:#D8E6DF;--mut:#7C8B84;--err:#F2665B;--amber:#F2A93B}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--txt);font-family:'Space Grotesk',system-ui,sans-serif}
+.wrap{max-width:920px;margin:0 auto;padding:20px 16px 60px}
+h1{color:var(--green);font-size:22px;margin:6px 0}
+.sub{color:var(--mut);font-size:14px}
+.bar{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line);padding:12px 0;margin-bottom:14px}
+.logo{font-weight:700;color:var(--green);letter-spacing:.5px}
+button{background:var(--green);color:#052117;border:0;border-radius:10px;padding:11px 16px;font-size:14px;font-weight:700;cursor:pointer}
+button.ghost{background:transparent;color:var(--green);border:1px solid var(--green)}
+button:disabled{opacity:.45;cursor:default}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px;margin:12px 0}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:12px}
+.card{background:#0b1310;border:1px solid var(--line);border-radius:12px;padding:12px;cursor:pointer;transition:.15s}
+.card.sel{border-color:var(--green);box-shadow:0 0 0 1px var(--green) inset}
+.card h3{margin:6px 0 4px;font-size:15px}.card p{margin:0;color:var(--mut);font-size:12.5px;line-height:1.35}
+.ico{font-size:22px}
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0 14px}
+.chip{border:1px solid var(--line);border-radius:20px;padding:6px 12px;font-size:13px;cursor:pointer;color:var(--mut)}
+.chip.on{border-color:var(--green);color:var(--green)}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+pre{background:#05100b;border:1px solid var(--line);border-radius:8px;padding:10px;white-space:pre-wrap;word-break:break-word;font-family:'JetBrains Mono',monospace;font-size:12px;color:#bfe9d3;max-height:220px;overflow:auto}
+.k{color:var(--green)}.e{color:var(--err)}
+.overlay{position:fixed;inset:0;background:rgba(0,0,0,.7);display:none;align-items:center;justify-content:center;padding:16px;z-index:50}
+.modal{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:20px;max-width:460px;width:100%}
+input{width:100%;background:#05100b;border:1px solid var(--line);border-radius:8px;color:var(--txt);padding:11px;font-size:15px;font-family:'JetBrains Mono',monospace;letter-spacing:1px}
+.barwrap{height:8px;background:#05100b;border:1px solid var(--line);border-radius:6px;overflow:hidden;margin:10px 0}
+.barfill{height:100%;width:0;background:var(--green);transition:.3s}
+a{color:var(--green)}
+.big{font-size:26px;letter-spacing:2px;color:var(--green);font-family:'JetBrains Mono',monospace;text-align:center;margin:10px 0}
+small{color:var(--mut)}
+</style></head><body>
+<div class="wrap">
+  <div class="bar"><div class="logo">⚙ CHANGAN TOOLS</div><div class="sub">Instalador USB</div></div>
+  <h1>Instalá apps en tu Changan</h1>
+  <p class="sub">Conectá el auto por cable USB y elegí las apps. Todo desde el navegador — no descargás nada. (Chrome o Edge)</p>
+
+  <div class="panel">
+    <div class="row">
+      <button id="btnConnect">🔌 Conectar el auto por USB</button>
+      <span id="connMsg" class="sub"></span>
+    </div>
+    <pre id="log" style="display:none"></pre>
+  </div>
+
+  <div id="catPanel" style="display:none">
+    <div class="filters" id="filters"></div>
+    <div class="grid" id="grid"></div>
+    <div class="panel row" style="justify-content:space-between">
+      <span id="selCount" class="sub">0 seleccionadas</span>
+      <button id="btnInstall">Instalar seleccionadas</button>
+    </div>
+  </div>
+</div>
+
+<!-- candado -->
+<div class="overlay" id="ovLock"><div class="modal">
+  <h2 style="color:var(--green);margin-top:0">Activá tu licencia</h2>
+  <p class="sub">El código de tu auto es:</p>
+  <div class="big" id="codigo">—</div>
+  <p class="sub">Escribinos por WhatsApp con este código, hacé el pago, y te enviamos tu clave. 1 pago = este auto de por vida.</p>
+  <a id="waLic" target="_blank"><button class="ghost" style="width:100%;margin:8px 0">Enviar código por WhatsApp</button></a>
+  <input id="clave" placeholder="Pegá tu clave aquí" />
+  <div id="lockMsg" class="sub" style="margin:8px 0"></div>
+  <div class="row" style="justify-content:flex-end">
+    <button class="ghost" id="lockClose">Cerrar</button>
+    <button id="lockValidar">Activar</button>
+  </div>
+</div></div>
+
+<!-- install -->
+<div class="overlay" id="ovInst"><div class="modal">
+  <h2 id="instTitle" style="color:var(--green);margin-top:0">Instalando…</h2>
+  <div class="barwrap"><div class="barfill" id="barFill"></div></div>
+  <div id="instStatus" class="sub">Preparando…</div>
+  <pre id="instLog" style="margin-top:10px"></pre>
+  <div class="row" style="justify-content:flex-end"><button id="instClose" style="display:none">Cerrar</button></div>
+</div></div>
+
+<script type="module">
+const API = "";                 // mismo dominio
+const CATALOG_URL = "/api/catalog";
+const WHATSAPP = "51997327694";
+const R2 = "https://pub-d58feab80b534df4880d797ea9210110.r2.dev/";
+
+const $ = id=>document.getElementById(id);
+const logEl=$("log");
+const log=(t,cls)=>{ logEl.style.display="block"; const s=document.createElement("span"); if(cls)s.className=cls; s.textContent=t+"\n"; logEl.appendChild(s); logEl.scrollTop=logEl.scrollHeight; };
+
+let Adb, AdbDaemonTransport, AdbDaemonWebUsbDeviceManager, AdbWebCredentialStore;
+let adb=null, sh=null, serial="", model="", codigoInfo=null, catalog=null;
+let selected=new Set(), filter="todos";
+
+// ---- catalogo ----
+async function loadCatalog(){
+  try{ const r=await fetch(CATALOG_URL,{cache:"no-store"}); catalog=await r.json(); }
+  catch(e){ catalog=FALLBACK; }
+}
+const FALLBACK={ metodos:{iflytek:{nombre:"CS55 Plus / UNI"},system_x7:{nombre:"X7 Plus"}}, apps:[] };
+const ICON=id=>({autokit:"📱",hurev:"🚗",smarttube:"▶️",xupertv:"📺",waze:"🧭",fermata:"🎵",miniopera:"🌐"}[id]||"📦");
+
+function render(){
+  const apps=(catalog.apps||[]).filter(a=> filter==="todos" || (a.modelos||[]).includes(filter));
+  const grid=$("grid"); grid.innerHTML="";
+  apps.forEach(a=>{
+    const d=document.createElement("div"); d.className="card"+(selected.has(a.id)?" sel":"");
+    d.innerHTML=`<div class="ico">${ICON(a.id)}</div><h3>${a.nombre}</h3><p>${a.descripcion||""}</p>`;
+    d.onclick=()=>{ selected.has(a.id)?selected.delete(a.id):selected.add(a.id); render(); };
+    grid.appendChild(d);
+  });
+  $("selCount").textContent = selected.size+" seleccionadas";
+}
+function buildFilters(){
+  const cats=[{id:"todos",label:"Todas"},{id:"iflytek",label:"CS55 / UNI"},{id:"system_x7",label:"X7 Plus"}];
+  const f=$("filters"); f.innerHTML="";
+  cats.forEach(c=>{ const s=document.createElement("span"); s.className="chip"+(filter===c.id?" on":""); s.textContent=c.label;
+    s.onclick=()=>{ filter=c.id; buildFilters(); render(); }; f.appendChild(s); });
+}
+
+// ---- ya-webadb ----
+async function loadLib(){
+  ({ Adb, AdbDaemonTransport } = await import("https://esm.sh/@yume-chan/adb@1.1.0"));
+  ({ AdbDaemonWebUsbDeviceManager } = await import("https://esm.sh/@yume-chan/adb-daemon-webusb@1.1.0"));
+  const c = await import("https://esm.sh/@yume-chan/adb-credential-web@1.1.0");
+  AdbWebCredentialStore = c.default || c.AdbWebCredentialStore;
+}
+async function makeShell(adb){
+  const proc = await adb.subprocess.noneProtocol.spawn("sh");
+  const writer = proc.stdin.getWriter(); const enc=new TextEncoder();
+  let buf=""; const reader=proc.stdout.pipeThrough(new TextDecoderStream()).getReader();
+  (async()=>{ try{ for(;;){ const {value,done}=await reader.read(); if(done)break; buf+=value;
+    if(/verify password/i.test(buf)){ buf=""; await writer.write(enc.encode("369875\n")); } } }catch(e){} })();
+  async function run(cmd,timeout=60000){ const M="__E"+Math.random().toString(36).slice(2)+"__"; buf="";
+    await writer.write(enc.encode(cmd+"; echo "+M+"\n")); const t0=Date.now();
+    while(!buf.includes(M)){ if(Date.now()-t0>timeout)break; await new Promise(r=>setTimeout(r,80)); }
+    return buf.split(M)[0].replace(/verify success!?/gi,"").trim(); }
+  return {run,adb};
+}
+
+$("btnConnect").onclick=async()=>{
+  try{
+    $("connMsg").textContent="Cargando…"; if(!Adb) await loadLib();
+    const mgr=AdbDaemonWebUsbDeviceManager.BROWSER;
+    if(!mgr){ $("connMsg").innerHTML='<span class="e">Usá Chrome o Edge (WebUSB).</span>'; return; }
+    log("Elegí el auto en el cuadro de Chrome…");
+    const device=await mgr.requestDevice(); if(!device){ $("connMsg").textContent="No elegiste el auto."; return; }
+    log("Conectando ADB con "+device.serial+"…");
+    const connection=await device.connect();
+    const store=new AdbWebCredentialStore("ChanganTools");
+    const transport=await AdbDaemonTransport.authenticate({serial:device.serial,connection,credentialStore:store});
+    adb=new Adb(transport); sh=await makeShell(adb); log("✓ ADB conectado","k");
+    // detectar
+    const aid=(await sh.run("settings get secure android_id")).trim();
+    const home=await sh.run("cmd package resolve-activity -c android.intent.category.HOME 2>/dev/null | grep -m1 packageName");
+    model = /chinatsp/i.test(home) ? "system_x7" : "iflytek";
+    serial = aid || (await sh.run("getprop ro.serialno")).trim();
+    log("android_id="+serial+"  modelo="+model,"k");
+    $("connMsg").innerHTML='<span class="k">✓ Auto conectado — '+(model==="system_x7"?"X7 Plus":"CS55/UNI")+'</span>';
+    filter = model; buildFilters(); render(); $("catPanel").style.display="block";
+    await pedirCodigo();
+  }catch(e){ $("connMsg").innerHTML='<span class="e">Error al conectar</span>'; log("ERROR: "+(e.message||e),"e");
+    log("Si el cuadro salió vacío con el auto conectado: cerrá adb (adb kill-server). En PCs con drivers adb el WebUSB puede chocar."); }
+};
+
+// ---- candado ----
+async function pedirCodigo(){
+  try{ const r=await fetch(API+"/api/candado/codigo?serial="+encodeURIComponent(serial),{cache:"no-store"});
+    codigoInfo=await r.json();
+    if(codigoInfo.ok){ $("codigo").textContent=codigoInfo.codigo;
+      $("waLic").href="https://wa.me/"+WHATSAPP+"?text="+encodeURIComponent("Hola! Quiero activar mi licencia Changan Tools. Mi código es: "+codigoInfo.codigo); }
+    return codigoInfo;
+  }catch(e){ return null; }
+}
+function abrirCandado(){ $("ovLock").style.display="flex"; $("lockMsg").textContent=""; pedirCodigo(); }
+$("lockClose").onclick=()=>$("ovLock").style.display="none";
+$("lockValidar").onclick=async()=>{
+  const clave=$("clave").value.trim().toUpperCase(); if(!clave){ $("lockMsg").innerHTML='<span class="e">Pegá tu clave.</span>'; return; }
+  $("lockMsg").textContent="Validando…";
+  try{ const r=await fetch(API+"/api/candado/validar",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({serial,clave})});
+    const d=await r.json();
+    if(d.ok){ $("lockMsg").innerHTML='<span class="k">✓ Licencia activada!</span>'; setTimeout(()=>{ $("ovLock").style.display="none"; instalar(); },900); }
+    else $("lockMsg").innerHTML='<span class="e">✗ '+(d.error||"Clave incorrecta")+'</span>';
+  }catch(e){ $("lockMsg").innerHTML='<span class="e">Error al validar</span>'; }
+};
+
+// ---- instalar ----
+$("btnInstall").onclick=async()=>{
+  if(selected.size===0) return; if(!adb){ $("connMsg").textContent="Conectá el auto primero."; return; }
+  const cod=await pedirCodigo();
+  if(!cod || !cod.activado){ abrirCandado(); return; }
+  instalar();
+};
+
+async function pushApk(url,dest){
+  const resp=await fetch(url); if(!resp.ok) throw new Error("no se pudo bajar el apk ("+resp.status+")");
+  const sync=await adb.sync();
+  try{ await sync.write({ filename:dest, file:resp.body }); } finally{ await sync.dispose(); }
+}
+async function instalar(){
+  const ids=[...selected]; const apps=(catalog.apps||[]).filter(a=>ids.includes(a.id));
+  $("ovInst").style.display="flex"; $("barFill").style.width="0%"; $("instLog").innerHTML="";
+  $("instClose").style.display="none"; $("instTitle").textContent="Instalando…";
+  const ilog=(t)=>{ const d=document.createElement("div"); d.textContent=t; $("instLog").appendChild(d); $("instLog").scrollTop=$("instLog").scrollHeight; };
+  let ok=0, fail=0;
+  for(let i=0;i<apps.length;i++){
+    const a=apps[i]; const file=a.file||a.apk||(a.id+".apk");
+    const base=(catalog.r2_base||R2).replace(/\/$/,"");
+    const url=base+"/"+encodeURIComponent(file);
+    const dest="/data/local/tmp/"+file.replace(/[^A-Za-z0-9._-]/g,"_");
+    $("instStatus").textContent="("+(i+1)+"/"+apps.length+") "+a.nombre; $("barFill").style.width=Math.round(i/apps.length*100)+"%";
+    try{
+      ilog("Descargando "+a.nombre+"…"); await pushApk(url,dest);
+      ilog("Instalando "+a.nombre+"…");
+      let res;
+      if(model==="system_x7"){
+        const carp=a.id.replace(/[^A-Za-z0-9]/g,"");
+        res=await sh.run("su 0 sh -c 'mount -o rw,remount / 2>/dev/null; mount -o rw,remount /system 2>/dev/null; mkdir -p /system/app/"+carp+"; cp "+dest+" /system/app/"+carp+"/"+carp+".apk; chmod 644 /system/app/"+carp+"/"+carp+".apk; chown system:system /system/app/"+carp+"/"+carp+".apk; pm install -r "+dest+" 2>&1'",120000);
+      }else{
+        res=await sh.run("pm install -r "+dest+" 2>&1",120000);
+      }
+      if(/Success/i.test(res)){ ok++; ilog("✓ "+a.nombre+" instalada"); }
+      else{ fail++; ilog("✗ "+a.nombre+": "+(res.split("\n").pop()||"falló")); }
+      await sh.run("rm -f "+dest);
+    }catch(e){ fail++; ilog("✗ "+a.nombre+": "+(e.message||e)); }
+  }
+  $("barFill").style.width="100%"; $("instTitle").textContent="Listo ✓";
+  $("instStatus").textContent="Instaladas "+ok+" de "+apps.length+(fail?(" · "+fail+" fallaron"):"");
+  // refrescar launcher
+  try{ if(model==="system_x7"){ await sh.run("su 0 sh -c 'pm clear com.chinatsp.launcher; am start -a android.intent.action.MAIN -c android.intent.category.HOME'"); }
+       else{ await sh.run("su 0 sh -c 'am start -a android.intent.action.MAIN -c android.intent.category.HOME'"); } }catch(e){}
+  ilog("Listo. Revisá las apps en el auto.");
+  $("instClose").style.display="";
+}
+$("instClose").onclick=()=>$("ovInst").style.display="none";
+
+await loadCatalog(); buildFilters(); render();
+</script><script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920" integrity="sha512-L0ha0OXavK/8okipN9F8BtP84dg9DUhPERbBXzwI6dgTA55d2+yweo3pn5CSFYs45/r8md2+xvUPtTdvTNRfjA==" data-cf-beacon='{"version":"2024.11.0","token":"66d3fd570f924e65863b5ce39dd486e5","r":1,"spa":2}' crossorigin="anonymous"></script>
+</body></html>

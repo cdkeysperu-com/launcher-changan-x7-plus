@@ -1,0 +1,72 @@
+===============================================================================
+       GUÍA MAESTRA DEFINITIVA: CHANGAN X7 PLUS CUSTOM HMI & SUITE AUTOMOTRIZ
+===============================================================================
+
+LLEVA ESTA CARPETA EN TU LAPTOP O MEMORIA USB AL AUTO, O PRUÉBALO EN TU PC.
+
+-------------------------------------------------------------------------------
+0. ¿QUIERES PROBAR TODO EN TU PC PRIMERO? (EMULADOR 100% IDÉNTICO AL AUTO)
+-------------------------------------------------------------------------------
+   - Haz doble clic en "1_PROBAR_TODO_EN_EMULADOR.bat".
+   - Se abrirá la pantalla panorámica 1920x720 px @ 213 DPI con el NUEVO LAUNCHER
+     COCKPIT CUSTOM por defecto (Clima superior, Radio y Música separadas, Brocha RAM,
+     Cámara 360 AVM y todas las nuevas aplicaciones listas para usar).
+   - En la subcarpeta "EMULADOR_PC_CHANGAN_X7" tienes utilidades adicionales:
+     * CAMBIAR_A_LAUNCHER_COCKPIT.bat
+     * CAMBIAR_A_LAUNCHER_ONSTYLE.bat
+     * AJUSTAR_PANTALLA_1920x720.bat
+
+-------------------------------------------------------------------------------
+PASO 1: EN TU AUTO (ACTIVAR DEPURACIÓN USB)
+-------------------------------------------------------------------------------
+1. Enciende la radio de tu Changan X7 Plus.
+2. Abre la aplicación de TELÉFONO (marcador de llamadas).
+3. Escribe exactamente el código:
+      **888
+4. Se abrirán los Ajustes Ocultos de Desarrollador del vehículo.
+5. Busca y MARCA la casilla: "Depuración por USB".
+6. Conecta el cable USB de tu laptop al PUERTO USB FRONTAL de la consola central.
+7. En la pantalla del auto aparecerá una ventana emergente:
+   -> Marca la casilla: "Permitir siempre desde este equipo"
+   -> Presiona el botón: ACEPTAR
+
+-------------------------------------------------------------------------------
+PASO 2: EN TU LAPTOP (MAPEO DE TIMÓN Y CÁMARA 360 EN VIVO)
+-------------------------------------------------------------------------------
+   - Haz doble clic en "1_MAPEAR_TECLAS_EN_VIVO.bat".
+   - Te permite:
+     [1] Monitorear en tiempo real las teclas del timón (volumen, pistas, voz, etc.)
+         mostrando el código Linux (getevent) y keycode Android de cada botón.
+     [2] Probar en la pantalla del auto los disparadores de Cámara 360° AVM en vivo.
+     [3] Verificar permisos del botón HOME para volver al launcher desde cualquier menú.
+
+-------------------------------------------------------------------------------
+PASO 3: INSTALACIÓN MAESTRA EN EL AUTO CON 1 SOLO CLIC
+-------------------------------------------------------------------------------
+   - Haz doble clic en "INSTALAR_TODO_EN_EL_AUTO.bat" (o en la Opción 3 de "0_ABRIR_MENU_CHANGAN.bat").
+   - El instalador automatizado realizará en 1 solo clic:
+     0. Desinstala y limpia versiones previas o con fallas (RiMusic anterior, botones antiguos).
+     1. Instala el Launcher Cockpit Personalizado con bypass de bordes negros (1920x720).
+     2. Configura el GPS Satelital Nativo del chip MediaTek para Waze y Maps.
+     3. Instala Open Headunit v3.5.0 Oficial (Android Auto inalámbrico nativo).
+     4. Instala Spotube v5.1.2 (Spotify Libre con descargas MP3 directas a memoria/USB).
+     5. Instala SimpMusic v2.3.0 (Reproductor Offline Pro sin bucles de repetición).
+     6. Instala InnerTune v0.5.14 (Ultra ligero de 7 MB con error InnerTube corregido).
+     7. Instala OwnTV v5.2.1 + Transfiere lista de 370+ canales a /sdcard/IPTV/canales_vip.m3u.
+     8. Instala CloudStream 3 v4.8.0 (XuperTV Libre para películas y series HD).
+     9. Instala Waze GPS, Brave con Adblock y SmartTube Pro sin anuncios.
+     10. Concede automáticamente todos los permisos automotrices para que no aparezcan alertas.
+
+-------------------------------------------------------------------------------
+¿CÓMO CAMBIAR ENTRE EL LAUNCHER NUEVO Y EL DE FÁBRICA?
+-------------------------------------------------------------------------------
+   - Para poner el Launcher Cockpit Mejorado: "PONER_LAUNCHER_COCKPIT_DEFECTO.bat"
+   - Para volver al Launcher OnStyle de fábrica: "PONER_LAUNCHER_ONSTYLE_DEFECTO.bat"
+   - Para restaurar el auto al estado 100% de fábrica: "DESHACER_CAMBIOS_Y_RESTAURAR_FABRICA.bat"
+
+-------------------------------------------------------------------------------
+CARPETA DE RESPALDO Y DOCUMENTACIÓN TÉCNICA:
+-------------------------------------------------------------------------------
+   - En la subcarpeta "APK MEJORADAS" tienes organizadas todas las apps con sus
+     guías paso a paso de uso y conexión nativa sin instalar APKs en tu celular.
+===============================================================================

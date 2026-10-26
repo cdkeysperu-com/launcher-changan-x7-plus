@@ -1,0 +1,96 @@
+# ==============================================================================
+# .gitignore — CHANGAN OSHAN X7 PLUS COCKPIT SUITE
+# ==============================================================================
+
+# ------------------------------------------------------------------------------
+# 1. INFORMES, AUDITORÍAS Y AVANCES INTERNOS (SOLICITADO POR EL USUARIO)
+# ------------------------------------------------------------------------------
+informes/
+avances/
+**/informes/
+**/avances/
+auditoria_emulador_2026/
+PRUEBAS 24 DEL 10 DEL 2026/
+window_dump.xml
+
+# ------------------------------------------------------------------------------
+# 2. LOGS, TELEMETRÍA FORENSE Y ESTADO LOCAL DE CONEXIÓN
+# ------------------------------------------------------------------------------
+*.log
+server.log
+telemetria_*.txt
+registro_teclas_*.txt
+LOG_INSTALACION_COMPLETA.txt
+diagnostics/
+**/diagnostics/
+dumps_y_dex/
+dashboard_state.json
+**/dashboard_state.json
+
+# ------------------------------------------------------------------------------
+# 3. CREDENCIALES, SECRETOS Y VARIABLES DE ENTORNO
+# ------------------------------------------------------------------------------
+.env
+.env.*
+*.env
+*.pem
+*.key
+*.pk8
+*.jks
+*.keystore
+secrets.*
+credentials.*
+
+# ------------------------------------------------------------------------------
+# 4. ARCHIVOS TEMPORALES, CACHÉ Y SCRIPTS DE DESARROLLO / REVERSE ENGINEERING
+# ------------------------------------------------------------------------------
+build_scratch/
+__pycache__/
+**/__pycache__/
+*.py[cod]
+*$py.class
+*.bak
+*.tmp
+*.swp
+node_modules/
+**/node_modules/
+package-lock.json
+
+# ------------------------------------------------------------------------------
+# 5. COPIAS DE SEGURIDAD DEL VEHÍCULO Y EMULADOR LOCAL (ARCHIVOS GIGANTES)
+# (Evita exceder el límite de 100 MB por archivo de GitHub)
+# ------------------------------------------------------------------------------
+oem_factory_backup/
+**/oem_factory_backup/
+EMULADOR_PC_CHANGAN_X7/
+portable/runtime/
+tools/jdk/
+**/tools/jdk/
+
+# APKs pesados de terceros (>50MB / >100MB que bloquean el push en GitHub)
+apks/
+**/apks/
+apks_listos_para_instalar/
+**/apks_listos_para_instalar/
+*brave*.apk
+*Brave*.apk
+*spotube*.apk
+*Spotube*.apk
+*webview*.apk
+*.qcow2
+*.img
+*.vmdk
+
+# ------------------------------------------------------------------------------
+# 6. ARCHIVOS DE SISTEMA OPERATIVO Y ENTORNOS DE DESARROLLO (IDE)
+# ------------------------------------------------------------------------------
+.DS_Store
+Thumbs.db
+ehthumbs.db
+[Dd]esktop.ini
+$RECYCLE.BIN/
+
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace

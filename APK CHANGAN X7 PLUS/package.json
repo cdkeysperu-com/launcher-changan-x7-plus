@@ -1,0 +1,24 @@
+{
+  "name": "apk-changan-x7-plus",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "rea": "node node_modules/rea-agents/scripts/rea.mjs",
+    "rea:devices": "node node_modules/rea-agents/scripts/rea.mjs list-adb-devices",
+    "rea:packages": "node node_modules/rea-agents/scripts/rea.mjs list-adb-packages",
+    "rea:help": "node node_modules/rea-agents/scripts/rea.mjs --help",
+    "dashboard": "cmd /c INICIAR_DASHBOARD_CHANGAN.bat",
+    "restore:factory": "cmd /c DESHACER_CAMBIOS_Y_RESTAURAR_FABRICA.bat",
+    "preview:launcher": "python -m http.server 8080 --directory launcher_web",
+    "install:car": "cmd /c INSTALAR_TODO_EN_EL_AUTO.bat"
+  },
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "rea-agents": "^6.4.0"
+  },
+  "devDependencies": {
+    "node-forge": "^1.4.0"
+  }
+}

@@ -1,0 +1,101 @@
+{
+  "version": 1,
+  "updated": "2026-07-25",
+  "metodos": {
+    "iflytek": {
+      "nombre": "CS55 Plus / UNI-T / UNI-K / UNI-V"
+    },
+    "system_x7": {
+      "nombre": "X7 Plus"
+    }
+  },
+  "apps": [
+    {
+      "id": "autokit",
+      "nombre": "AutoKit (CarPlay/Android Auto por cable)",
+      "descripcion": "Proyeccion del telefono. Para todos los modelos.",
+      "package": "cn.manstep.phonemirrorBox",
+      "modelos": [
+        "iflytek",
+        "system_x7"
+      ]
+    },
+    {
+      "id": "hurev",
+      "nombre": "HU Revived",
+      "descripcion": "Interfaz mejorada para el head unit.",
+      "package": "com.andrerinas.headunitrevived",
+      "modelos": [
+        "iflytek",
+        "system_x7"
+      ]
+    },
+    {
+      "id": "smarttube",
+      "nombre": "SmartTube (YouTube sin ads)",
+      "descripcion": "YouTube optimizado, sin publicidad.",
+      "package": "org.smarttube.stable",
+      "modelos": [
+        "iflytek",
+        "system_x7"
+      ]
+    },
+    {
+      "id": "xupertv",
+      "nombre": "XuperTV",
+      "descripcion": "Streaming de TV.",
+      "package": "com.android.mgstv",
+      "modelos": [
+        "iflytek",
+        "system_x7"
+      ]
+    },
+    {
+      "id": "waze",
+      "nombre": "Waze",
+      "descripcion": "Navegacion. NO disponible en X7.",
+      "package": "com.waze",
+      "modelos": [
+        "iflytek"
+      ]
+    },
+    {
+      "id": "fermata",
+      "nombre": "Fermata Auto",
+      "descripcion": "Reproductor multimedia. NO disponible en X7.",
+      "package": "me.aap.fermata",
+      "modelos": [
+        "iflytek"
+      ]
+    },
+    {
+      "id": "miniopera",
+      "nombre": "Opera Mini (navegador)",
+      "descripcion": "Navegador liviano. Para X7 (reemplaza Waze/Fermata).",
+      "package": "com.opera.mini.native",
+      "modelos": [
+        "system_x7"
+      ]
+    },
+    {
+      "id": "amaze",
+      "nombre": "Amaze (Explorador de archivos)",
+      "descripcion": "Explorador de archivos moderno. Para todos los modelos.",
+      "package": "com.amaze.filemanager",
+      "modelos": [
+        "iflytek",
+        "system_x7"
+      ]
+    },
+    {
+      "id": "spotify",
+      "nombre": "Spotify (Música)",
+      "descripcion": "Música y podcasts. Para todos los modelos.",
+      "package": "com.spotify.music",
+      "modelos": [
+        "iflytek",
+        "system_x7"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Cockpit X7 Plus</string>
+    <string name="title_nav">Navegación GPS</string>
+    <string name="title_music">RiMusic Audio</string>
+    <string name="title_radio">Radio Changan</string>
+    <string name="title_phone">Teléfono Bluetooth</string>
+    <string name="title_camera">Cámara 360° AVM</string>
+    <string name="title_car">Control Vehicular</string>
+    <string name="title_climate">Climatizador A/C</string>
+    <string name="title_android_auto">Android Auto</string>
+    <string name="title_browser">Brave Browser</string>
+    <string name="title_youtube">SmartTube</string>
+    <string name="title_factory">Launcher OnStyle Fábrica</string>
+    <string name="action_all_apps">Todas las Aplicaciones</string>
+</resources>

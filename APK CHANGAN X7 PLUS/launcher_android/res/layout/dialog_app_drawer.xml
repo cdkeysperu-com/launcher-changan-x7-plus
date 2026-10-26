@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#E6050A14"
+    android:padding="20dp">
+
+    <!-- Top Bar with Title, OnStyle Shortcut, and Close -->
+    <RelativeLayout
+        android:id="@+id/drawer_top_bar"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/bg_bottom_dock"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="APLICACIONES DEL COCKPIT"
+            android:textColor="@color/cyan_accent"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:letterSpacing="0.08" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn_drawer_factory"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:background="@drawable/bg_factory_btn"
+                android:text="★ VOLVER A LAUNCHER ORIGINAL ONSTYLE"
+                android:textColor="@color/text_gold"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp" />
+
+            <ImageButton
+                android:id="@+id/btn_drawer_close"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="12dp"
+                android:background="@drawable/bg_circle_btn"
+                android:src="@drawable/ic_close"
+                android:padding="8dp"
+                android:scaleType="fitCenter"
+                android:contentDescription="Cerrar" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <!-- Grid of installed applications -->
+    <GridView
+        android:id="@+id/gv_apps"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/drawer_top_bar"
+        android:layout_marginTop="16dp"
+        android:numColumns="6"
+        android:verticalSpacing="16dp"
+        android:horizontalSpacing="16dp"
+        android:stretchMode="columnWidth"
+        android:gravity="center"
+        android:padding="8dp"
+        android:scrollbarStyle="insideOverlay" />
+
+</RelativeLayout>

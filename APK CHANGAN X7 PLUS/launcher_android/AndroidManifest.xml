@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.chinatsp.x7plus.launcher"
+    android:versionCode="202612"
+    android:versionName="3.1.0">
+
+    <uses-sdk android:minSdkVersion="21" android:targetSdkVersion="28" />
+
+    <!-- SUPPORTS FULL ULTRA-WIDE SCREENS WITHOUT COMPAT PILLARBOX -->
+    <supports-screens
+        android:smallScreens="true"
+        android:normalScreens="true"
+        android:largeScreens="true"
+        android:xlargeScreens="true"
+        android:anyDensity="true"
+        android:resizeable="true" />
+
+    <!-- SYSTEM & AUTOMOTIVE PERMISSIONS -->
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.MEDIA_CONTENT_CONTROL" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+
+    <application
+        android:label="@string/app_name"
+        android:icon="@drawable/ic_launcher"
+        android:roundIcon="@drawable/ic_launcher"
+        android:hardwareAccelerated="true"
+        android:supportsRtl="true"
+        android:resizeableActivity="true"
+        android:maxAspectRatio="3.5"
+        android:theme="@style/Theme.ChanganCockpit">
+
+        <!-- FULLSCREEN METADATA FOR ULTRA-WIDE DISPLAYS (8:3 / 1920x720) -->
+        <meta-data android:name="android.max_aspect" android:value="3.5" />
+        <meta-data android:name="notch.config" android:value="none" />
+        <meta-data android:name="changan.navigation" android:value="true" />
+        <meta-data android:name="chinatsp.fullscreen" android:value="true" />
+        <meta-data android:name="com.chinatsp.vehicle.fullscreen" android:value="true" />
+        <meta-data android:name="android.service.car.SYS_UI_NAV_BAR" android:value="false" />
+        <meta-data android:name="com.chinatsp.systemui.fullscreen" android:value="true" />
+
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name"
+            android:icon="@drawable/ic_launcher"
+            android:exported="true"
+            android:resizeableActivity="true"
+            android:maxAspectRatio="3.5"
+            android:launchMode="singleInstance"
+            android:stateNotNeeded="true"
+            android:screenOrientation="landscape"
+            android:theme="@style/Theme.ChanganCockpit"
+            android:configChanges="orientation|screenSize|keyboardHidden|smallestScreenSize|screenLayout">
+
+            <meta-data android:name="android.max_aspect" android:value="3.5" />
+
+            <!-- MAIN HOME LAUNCHER INTENT (Priority 1000 matches Changan OEM Launcher) -->
+            <intent-filter android:priority="1000">
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.HOME" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- RECEIVER FOR BOOT -->
+        <receiver android:name=".BootReceiver" android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
+        <!-- RECEIVER FOR STEERING WHEEL, COAGENT KEYS AND BLUETOOTH/WIFI CONNECTIVITY -->
+        <receiver android:name=".HardwareKeyReceiver" android:exported="true">
+            <intent-filter android:priority="1000">
+                <action android:name="com.chinatsp.launcher_KEYHOME_SWIPE" />
+                <action android:name="com.chinatsp.action.ACTION_KEYHOME_SWIPE" />
+                <action android:name="com.chinatsp.action.HOME" />
+                <action android:name="com.chinatsp.launcher.home" />
+                <action android:name="com.chinatsp.systemui.ACTION_HOME" />
+                <action android:name="com.coagent.intent.action.KEY_CHANGED" />
+                <action android:name="com.chinatsp.systemui.ACTION_SOURCE_CHANGED" />
+                <action android:name="android.intent.action.CLOSE_SYSTEM_DIALOGS" />
+                <action android:name="android.bluetooth.device.action.ACL_CONNECTED" />
+                <action android:name="android.net.wifi.STATE_CHANGE" />
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+        </receiver>
+
+        <!-- DYNAMIC NOTIFICATION LISTENER FOR MEDIA TRACK METADATA & BLUETOOTH -->
+        <service
+            android:name=".MediaNotificationListener"
+            android:permission="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.service.notification.NotificationListenerService" />
+            </intent-filter>
+        </service>
+
+        <!-- MOCK LOCATION PROVIDER SERVICE (WI-FI UDP/TCP 5000/10110 & HTTP) -->
+        <service
+            android:name=".MockLocationService"
+            android:exported="false" />
+
+        <!-- FLOATING BACK & HOME DUAL ACCESSIBILITY AND OVERLAY SERVICE -->
+        <service
+            android:name=".FloatingBackService"
+            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.accessibilityservice.AccessibilityService" />
+            </intent-filter>
+            <meta-data
+                android:name="android.accessibilityservice"
+                android:resource="@xml/accessibility_service_config" />
+        </service>
+
+        <!-- FLOATING OVERLAY STANDALONE SERVICE (ALWAYS VISIBLE OVER ALL APPS) -->
+        <service
+            android:name=".FloatingOverlayService"
+            android:exported="false" />
+
+    </application>
+</manifest>

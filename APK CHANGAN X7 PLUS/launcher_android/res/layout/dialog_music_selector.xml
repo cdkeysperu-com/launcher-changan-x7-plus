@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#D9060B14"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="24dp">
+
+    <LinearLayout
+        android:layout_width="600dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_music_widget"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="SELECCIONAR REPRODUCTOR DE MÚSICA"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <ImageButton
+                android:id="@+id/btn_music_dlg_close"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/bg_fav_pill"
+                android:src="@drawable/ic_close"
+                android:scaleType="centerInside"
+                android:contentDescription="Cerrar" />
+        </RelativeLayout>
+
+        <Button
+            android:id="@+id/btn_play_oem_music"
+            android:layout_width="match_parent"
+            android:layout_height="46dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/bg_fav_pill"
+            android:text="🎵 Música Bluetooth / USB Original Changan"
+            android:textColor="#FFFFFF"
+            android:gravity="left|center_vertical"
+            android:paddingLeft="18dp" />
+
+        <Button
+            android:id="@+id/btn_play_smarttube"
+            android:layout_width="match_parent"
+            android:layout_height="46dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/bg_fav_pill"
+            android:text="📺 SmartTube Automotriz (YouTube sin anuncios)"
+            android:textColor="#FFFFFF"
+            android:gravity="left|center_vertical"
+            android:paddingLeft="18dp" />
+
+        <Button
+            android:id="@+id/btn_play_newpipe"
+            android:layout_width="match_parent"
+            android:layout_height="46dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/bg_fav_pill"
+            android:text="🎧 NewPipe YouTube Ligero"
+            android:textColor="#FFFFFF"
+            android:gravity="left|center_vertical"
+            android:paddingLeft="18dp" />
+
+        <Button
+            android:id="@+id/btn_play_spotify"
+            android:layout_width="match_parent"
+            android:layout_height="46dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/bg_fav_pill"
+            android:text="🟢 Spotify"
+            android:textColor="#FFFFFF"
+            android:gravity="left|center_vertical"
+            android:paddingLeft="18dp" />
+
+        <Button
+            android:id="@+id/btn_play_rimusic"
+            android:layout_width="match_parent"
+            android:layout_height="46dp"
+            android:layout_marginBottom="12dp"
+            android:background="@drawable/bg_fav_pill"
+            android:text="🎶 RiMusic (Streaming &amp; Offline)"
+            android:textColor="#FFFFFF"
+            android:gravity="left|center_vertical"
+            android:paddingLeft="18dp" />
+
+        <CheckBox
+            android:id="@+id/cb_remember_music"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Recordar como reproductor predeterminado"
+            android:textColor="#8FA0B5"
+            android:textSize="13sp" />
+
+    </LinearLayout>
+</LinearLayout>
