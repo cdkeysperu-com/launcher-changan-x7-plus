@@ -5,6 +5,8 @@
 # ------------------------------------------------------------------------------
 # 1. INFORMES, AUDITORÍAS Y AVANCES INTERNOS (SOLICITADO POR EL USUARIO)
 # ------------------------------------------------------------------------------
+.historico/
+**/.historico/
 informes/
 avances/
 **/informes/
@@ -63,7 +65,7 @@ package-lock.json
 oem_factory_backup/
 **/oem_factory_backup/
 EMULADOR_PC_CHANGAN_X7/
-portable/runtime/
+portable/
 tools/jdk/
 **/tools/jdk/
 

@@ -39,7 +39,7 @@ La **Changan Oshan X7 Plus** viene equipada con una pantalla táctil ultra-panor
 3. No posee selectores modernos para alternar entre navegadores GPS (Waze, Maps, Offline) o reproductores de música libre.
 4. El acceso al sintonizador nativo de radio y a la cámara de 360° AVM queda rígido o limitado.
 
-**Este proyecto ofrece un Launcher Nativo adaptado al 100% de la pantalla**, junto con una suite portable que se ejecuta desde una laptop mediante cable USB, permitiendo personalizar el vehículo de forma segura, limpia y totalmente reversible.
+**Este proyecto ofrece un Launcher Nativo adaptado al 100% de la pantalla**, junto con una suite de control y desarrollo que se ejecuta desde una laptop mediante cable USB o de forma inalámbrica por Wi-Fi / Hotspot 5G, permitiendo personalizar el vehículo de forma segura, limpia y totalmente reversible.
 
 ---
 

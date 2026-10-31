@@ -14,12 +14,10 @@ echo.
 
 :: Detectar ejecutable ADB
 set "ADB_BIN=adb"
-if exist "%~dp0tools\adb.exe" (
-    set "ADB_BIN=%~dp0tools\adb.exe"
-) else if exist "%~dp0portable\tools\adb.exe" (
-    set "ADB_BIN=%~dp0portable\tools\adb.exe"
-) else if exist "%~dp0APK CHANGAN X7 PLUS\tools\adb.exe" (
+if exist "%~dp0APK CHANGAN X7 PLUS\tools\adb.exe" (
     set "ADB_BIN=%~dp0APK CHANGAN X7 PLUS\tools\adb.exe"
+) else if exist "%~dp0tools\adb.exe" (
+    set "ADB_BIN=%~dp0tools\adb.exe"
 )
 
 echo [1/4] Desactivando mock_location a nivel del sistema...
